@@ -1,6 +1,6 @@
 var fs = require('fs');
-var directoriesDegree ="BS CpE"; 
-var directoriesYear ="2020"; 
+var directoriesDegree ="BSINFOTECH"; 
+var directoriesYear ="2019"; 
 const path = require("path");
 function findFiles(){
   const result = fs.readdirSync(`./CCIT Thesis Combined/${directoriesDegree}/${directoriesYear}`);

@@ -10,27 +10,28 @@
 <body>
   <h1> HELLO WORLD!</h1>
   <div id = "formAndSearch_Container">
+    <form name="myForm">
+      Select degree
+      <br>
+      <input type = "radio" name = "degree" value = "BSCS"/>BSCS
+      <br>
+      <input type = "radio" name = "degree" value = "BSINFOTECH"/>BSINFOTECH
+      <br>
+      <input type = "radio" name = "degree" value = "BSCpE"/>BSCpE
+      <br>
+      <br>
+      Select Year
+      <br>
+      <input type = "radio" name = "year" value = "2011"/>2011
+      <br>
+      <input type = "radio" name = "year" value = "2012"/>2012
+      <br>
+      <input type = "radio" name = "year" value = "2013"/>2013
+      <br>
+      <input type = "radio" name = "year" value = "2014"/>2014
+    </form>
+    <button id = "submitBtn" onclick="submitForm()">SUBMIT</button>
   </div>
-  <form name="myForm">
-    Select degree
-    <br>
-    <input type = "radio" name = "degree" value = "BSCS"/>BSCS
-    <br>
-    <input type = "radio" name = "degree" value = "BSINFOTECH"/>BSINFOTECH
-    <br>
-    <input type = "radio" name = "degree" value = "BSCpE"/>BSCpE
-    <br>
-    <br>
-    Select Year
-    <br>
-    <input type = "radio" name = "year" value = "2011"/>2011
-    <br>
-    <input type = "radio" name = "year" value = "2012"/>2012
-    <br>
-    <input type = "radio" name = "year" value = "2013"/>2013
-    <br>
-    <input type = "radio" name = "year" value = "2014"/>2014
-  </form>
 <div id="pdf_Container">
 </div>
 <script src="main.js"></script>
