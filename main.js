@@ -306,69 +306,69 @@ var BscpeFiles = [{
 var BSCSFiles = [{
   //-----------------------------BSCS 2010
   degree:"BSCS",
-  filename:"Computer  Based Class Schedule System for CCIT",
-  url:"Computer  Based Class Schedule System for CCIT.pdf",
+  filename:"Computer Based Class Schedule System for CCIT",
+  url:"CCIT Thesis Combined/BSCS/2010/Computer Based Class Schedule System for CCIT.pdf",
   date:"2010"
 },
 {
   degree:"BSCS",
-  filename:"Computer  Based Class Schedule System for CCIT",
-  url:"Computer Based Record and Information System for DSWD.pdf",
+  filename:"Computer Based Record and Information System for DSWD",
+  url:"CCIT Thesis Combined/BSCS/2010/Computer Based Record and Information System for DSWD.pdf",
   date:"2010"
 },
 //-----------------------------BSCS 2011
 {
   degree:"BSCS",
   filename:"Computerized Records Management System for LTMPC",
-  url:"Computerized Records Management System for LTMPC.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Computerized Records Management System for LTMPC.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Development and Evaluation of Proposed Computer Aided Software in Mathematics",
-  url:"Development and Evaluation of Proposed Computer Aided Software in Mathematics.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Development and Evaluation of Proposed Computer Aided Software in Mathematics.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"E-Timer for Computer Laboratories Usage for CCIT",
-  url:"E-Timer for Computer Laboratories Usage for CCIT.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/E-Timer for Computer Laboratories Usage for CCIT.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Electronic Grading System for Mambog Elementary School",
-  url:"Electronic Grading System for Mambog Elementary School.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Electronic Grading System for Mambog Elementary School.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Information System for Barangay Taugtog",
-  url:"Information System for Barangay Taugtog.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Information System for Barangay Taugtog.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Proposed Billing and Record Management System for Zameco I, Botolan, Zambales",
-  url:"Proposed Billing and Record Management System for Zameco I, Botolan, Zambales.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Proposed Billing and Record Management System for Zameco I, Botolan, Zambales.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Proposed Development of Computer Aided Instruction Software in Social Studies for High School Student",
-  url:"Proposed Development of Computer Aided Instruction Software in Social Studies for High School Student.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Proposed Development of Computer Aided Instruction Software in Social Studies for High School Student.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Proposed Online Information and Registration System for Initial Seminary Formation Year",
-  url:"Proposed Online Information and Registration System for Initial Seminary Formation Year.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Proposed Online Information and Registration System for Initial Seminary Formation Year.pdf",
   date:"2011"
 },
 {
   degree:"BSCS",
   filename:"Proposed Web-based Patient Information System for Sta. Cecilia Medical Center",
-  url:"Proposed Web-based Patient Information System for Sta. Cecilia Medical Center.pdf",
+  url:"CCIT Thesis Combined/BSCS/2011/Proposed Web-based Patient Information System for Sta. Cecilia Medical Center.pdf",
   date:"2011"
 },
 //-----------------------------BSCS 2012
@@ -577,8 +577,8 @@ var BSCSFiles = [{
 },
 {
   degree:"BSCS",
-  filename:"The Game  of Mystery, Treasure Hunter",
-  url:"The Game  of Mystery, Treasure Hunter.pdf",
+  filename:"The Game of Mystery, Treasure Hunter",
+  url:"The Game of Mystery, Treasure Hunter.pdf",
   date:"2018"
 },
 {
@@ -1084,37 +1084,87 @@ var BsinfotechFiles =[{
   url:"Zambalicious Online Food Searcher.pdf",
   date:"2019"
 }]
-
+//trial
 var pdfContainer = document.getElementById("pdf_Container");
+const searchBtn = document.getElementById("searchNameBTn");
+function searchTitle(){
+  let nameValue = document.getElementById("searchTitle").value;
+  let degreeValue = document.getElementById("inputDegree").value;
+  let nameValueArrayInWords = nameValue.split(" ");
+  let compareName = "";
+  let searchArray = "";
+  let anchorElements = "";
+  let fileNameArray = [];
+  if(degreeValue === "BSCS"){
+    // let searchButton = document.getElementById("searchTitleBtn").value;
+    for(let i = 0; i < BSCSFiles.length; i++){
+      let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
+      let fileNameSplit = fileNameInArrayWords.split(" ");
+      for(let j = 0; j < nameValueArrayInWords.length; j++){
+        if(nameValueArrayInWords[j].toLowerCase() === fileNameSplit[j]){
+          searchArray = nameValue.toLowerCase()
+          fileNameArray.push(fileNameSplit[j]);
+          var fileNameJoin = fileNameArray.join(' ');
+        }
+        if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
+          fileNameArray = [];
+        }
+      else if(searchArray === fileNameJoin){
+          compareName += `${BSCSFiles[i].filename}\n`;
+          anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+          fileNameArray = [];
+        }
+      }
+    
+    }
+  } 
+  pdfContainer.innerHTML = anchorElements;
+  console.log(compareName,"LINK");
+}
+searchBtn.addEventListener('click',searchTitle)
 
+// NEED TO CHANGE THE URL 
 function submitForm(){
   var degreeFormValue = document.myForm.degree.value; 
-  var dateOfResearch = document.myForm.year.value; 
+  var yearValue = document.getElementById("yearList").value;
+  console.log(yearValue);
   var anchorElements = "";
-  var directoriesBscpe = `CCIT Thesis Combined/BS CpE/${dateOfResearch}`
-  var directoriesBscs = `CCIT Thesis Combined/BSCS/${dateOfResearch}`
-  var directoriesBsinfoTech = `CCIT Thesis Combined/BSINFOTECH/${dateOfResearch}`
+  var directoriesBscpe = `CCIT Thesis Combined/BS CpE/${yearValue}`
+  var directoriesBscs = `CCIT Thesis Combined/BSCS/${yearValue}`
+  var directoriesBsinfoTech = `CCIT Thesis Combined/BSINFOTECH/${yearValue}`
+  var checkFiles = true;//To check if the year folder have files.
   if(degreeFormValue === "BSCpE"){
-    
     for(let i = 0; i < BscpeFiles.length; i++){
-      if(BscpeFiles[i].degree === "BSCpE" && BscpeFiles[i].date === dateOfResearch){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBscpe}/${BscpeFiles[i].url}" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`
+      if(BscpeFiles[i].degree === "BSCpE" && BscpeFiles[i].date === yearValue){
+        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBscpe}/${BscpeFiles[i].url}" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+        checkFiles = false;
+      }
+      else if(checkFiles === true && i === BscpeFiles.length-1){
+        anchorElements = "No Files Found";
       }
     }
   }
   else if(degreeFormValue === "BSCS"){
     
     for(let i = 0; i < BSCSFiles.length; i++){
-      if(BSCSFiles[i].degree === "BSCS" && BSCSFiles[i].date === dateOfResearch){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBscs}/${BSCSFiles[i].url}" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`
+      if(BSCSFiles[i].degree === "BSCS" && BSCSFiles[i].date === yearValue){
+        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBscs}/${BSCSFiles[i].url}" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+        checkFiles = false;
+      }
+      else if(checkFiles === true && i === BSCSFiles.length-1){
+        anchorElements = "No Files Found";
       }
     }
   }
   else if(degreeFormValue === "BSINFOTECH"){
     
     for(let i = 0; i < BsinfotechFiles.length; i++){
-      if(BsinfotechFiles[i].degree === "BSINFOTECH" && BsinfotechFiles[i].date === dateOfResearch){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBsinfoTech}/${BsinfotechFiles[i].url}" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`
+      if(BsinfotechFiles[i].degree === "BSINFOTECH" && BsinfotechFiles[i].date === yearValue){
+        anchorElements +=  `<li id = "pdfFiles"> <a href = "${directoriesBsinfoTech}/${BsinfotechFiles[i].url}" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+        checkFiles = false;
+      }
+      else if(checkFiles === true && i === BsinfotechFiles.length-1){
+        anchorElements = "No Files Found";
       }
     }
   }

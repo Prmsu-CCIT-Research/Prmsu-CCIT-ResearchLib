@@ -8,9 +8,17 @@
   <title>Document</title>
 </head>
 <body>
-  <h1> HELLO WORLD!</h1>
+  <nav id = "navbar_container">
+
+  </nav>
   <div id = "formAndSearch_Container">
-    <form name="myForm">
+    <form id = "searchingForm_container">
+      <input id = "searchTitle" type="text" placeholder="Filename"/>
+      <input id = "inputDegree" type="text" placeholder="Degree"/>
+      <input type="button" id ="searchNameBTn" value="SEARCH">
+    </form>
+
+    <form name="myForm" id = "sortingForm_container">
       Select degree
       <br>
       <input type = "radio" name = "degree" value = "BSCS"/>BSCS
@@ -19,18 +27,24 @@
       <br>
       <input type = "radio" name = "degree" value = "BSCpE"/>BSCpE
       <br>
+      SELECT YEAR:
       <br>
-      Select Year
-      <br>
-      <input type = "radio" name = "year" value = "2011"/>2011
-      <br>
-      <input type = "radio" name = "year" value = "2012"/>2012
-      <br>
-      <input type = "radio" name = "year" value = "2013"/>2013
-      <br>
-      <input type = "radio" name = "year" value = "2014"/>2014
+      <select id = "yearList" onchange="">
+        <option value = "2009">2009</option>
+        <option value = "2010">2010</option>
+        <option value = "2011">2011</option>
+        <option value = "2012">2012</option>
+        <option value = "2013">2013</option>
+        <option value = "2014">2014</option>
+        <option value = "2015">2015</option>
+        <option value = "2016">2016</option>
+        <option value = "2017">2017</option>
+        <option value = "2018">2018</option>
+        <option value = "2019">2019</option>
+        <option value = "2020">2020</option>
+      </select>
+      <button id = "submitBtn" onclick="submitForm()">SUBMIT</button>
     </form>
-    <button id = "submitBtn" onclick="submitForm()">SUBMIT</button>
   </div>
 <div id="pdf_Container">
 </div>
