@@ -1,64 +1,64 @@
 var BscpeFiles = [{
   //----------------------------------BSCPE 2011
   degree:"BSCpE",
-  filename: "Automatic Visitor Counter",
+  filename:"Automatic Visitor Counter",
   url:"Automatic Visitor Counter.pdf",
   date:"2011"
 },
 {
   degree:"BSCpE",
-  filename: "Remote Controlled Digital Alarm Clock",
+  filename:"Remote Controlled Digital Alarm Clock",
   url:"Remote Controlled Digital Alarm Clock.pdf ",
   date:"2011"
 },
 //----------------------------------BSCPE 2012
 {
   degree:"BSCpE",
-  filename: "E-Scoreboard",
+  filename:"E-Scoreboard",
   url:"E-Scoreboard.pdf",
   date:"2012"
 },
 {
   degree:"BSCpE",
-  filename: "Motion Security Camera",
+  filename:"Motion Security Camera",
   url:"Motion Security Camera.pdf",
   date:"2012"
 },
 {
   degree:"BSCpE",
-  filename: "Password Detection Vault with SMS Alert",
+  filename:"Password Detection Vault with SMS Alert",
   url:"Password Detection Vault with SMS Alert.pdf",
   date:"2012"
 },
 //----------------------------------BSCPE 2013
 {
   degree:"BSCpE",
-  filename: "Attendance Recording Device for CCIT Faculty using radio frequency identification",
+  filename:"Attendance Recording Device for CCIT Faculty using radio frequency identification",
   url:"Attendance Recording Device for CCIT Faculty using radio frequency identification.pdf",
   date:"2013"
 },
 {
   degree:"BSCpE",
-  filename: "Automated Locker Via Radio Frequency Identification",
+  filename:"Automated Locker Via Radio Frequency Identification",
   url:"Automated Locker Via Radio Frequency Identification.pdf",
   date:"2013"
 },
 {
   degree:"BSCpE",
-  filename: "Development of Microcontroller Based Biometric Classroom Door Lock",
+  filename:"Development of Microcontroller Based Biometric Classroom Door Lock",
   url:"Development of Microcontroller Based Biometric Classroom Door Lock.pdf",
   date:"2013"
 },
 {
   degree:"BSCpE",
-  filename: "Student Monitoring Device Using Fingerprint Scanning",
+  filename:"Student Monitoring Device Using Fingerprint Scanning",
   url:"Student Monitoring Device Using Fingerprint Scanning.pdf",
   date:"2013"
 },
 //----------------------------------BSCPE 2014
 {
   degree:"BSCpE",
-  filename: "Android Phone Controlled AC Outlet Using Anito Technology",
+  filename:"Android Phone Controlled AC Outlet Using Anito Technology",
   url:"Android Phone Controlled AC Outlet Using Anito Technology.pdf",
   date:"2014"
 },
@@ -1084,7 +1084,22 @@ var BsinfotechFiles =[{
   url:"Zambalicious Online Food Searcher.pdf",
   date:"2019"
 }]
-//trial
+
+var filter_Container = document.getElementById("filter_Container");
+filter_Container.style.display = 'none';
+var filterArrow = document.getElementById("arrow_updown");
+function showFilter(){
+  if(filter_Container.style.display === 'none'){
+    filter_Container.style.display = 'block';
+    filterArrow.style.transform = "rotate(45deg)"
+  }
+  else if(filter_Container.style.display === 'block'){
+    filter_Container.style.display = 'none';
+    filterArrow.style.transform = "rotate(227deg)"
+  }
+ 
+}
+
 var pdfContainer = document.getElementById("pdf_Container");
 const searchBtn = document.getElementById("searchNameBTn");
 function searchTitle(){
@@ -1095,13 +1110,17 @@ function searchTitle(){
   let searchArray = "";
   let anchorElements = "";
   let fileNameArray = [];
+  
   if(degreeValue === "BSCS"){
     // let searchButton = document.getElementById("searchTitleBtn").value;
     for(let i = 0; i < BSCSFiles.length; i++){
       let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
       let fileNameSplit = fileNameInArrayWords.split(" ");
+      
       for(let j = 0; j < nameValueArrayInWords.length; j++){
+        console.log(fileNameSplit[j])
         if(nameValueArrayInWords[j].toLowerCase() === fileNameSplit[j]){
+          
           searchArray = nameValue.toLowerCase()
           fileNameArray.push(fileNameSplit[j]);
           var fileNameJoin = fileNameArray.join(' ');
@@ -1118,6 +1137,7 @@ function searchTitle(){
     
     }
   } 
+
   pdfContainer.innerHTML = anchorElements;
   console.log(compareName,"LINK");
 }
@@ -1168,5 +1188,6 @@ function submitForm(){
       }
     }
   }
+
   pdfContainer.innerHTML = anchorElements;
 }

@@ -11,42 +11,55 @@
   <nav id = "navbar_container">
 
   </nav>
-  <div id = "formAndSearch_Container">
-    <form id = "searchingForm_container">
-      <input id = "searchTitle" type="text" placeholder="Filename"/>
-      <input id = "inputDegree" type="text" placeholder="Degree"/>
-      <input type="button" id ="searchNameBTn" value="SEARCH">
-    </form>
-
-    <form name="myForm" id = "sortingForm_container">
-      Select degree
-      <br>
-      <input type = "radio" name = "degree" value = "BSCS"/>BSCS
-      <br>
-      <input type = "radio" name = "degree" value = "BSINFOTECH"/>BSINFOTECH
-      <br>
-      <input type = "radio" name = "degree" value = "BSCpE"/>BSCpE
-      <br>
-      SELECT YEAR:
-      <br>
-      <select id = "yearList" onchange="">
-        <option value = "2009">2009</option>
-        <option value = "2010">2010</option>
-        <option value = "2011">2011</option>
-        <option value = "2012">2012</option>
-        <option value = "2013">2013</option>
-        <option value = "2014">2014</option>
-        <option value = "2015">2015</option>
-        <option value = "2016">2016</option>
-        <option value = "2017">2017</option>
-        <option value = "2018">2018</option>
-        <option value = "2019">2019</option>
-        <option value = "2020">2020</option>
-      </select>
+  <div id = "searchAndFilter_Container">
+    <div id = "search_Container">
+      <form id = "searchingForm_container">
+        <input id = "searchTitle" name="Filename" type="text" placeholder="Filename"/>
+        <input id = "inputDegree" type="text" placeholder="Degree"/>
+        <input type="button" id ="searchNameBTn" value="SEARCH">
+      </form>
+    </div>
+    <div id="showFilter_Container">
+      <button id ="showFilterButton"  onclick="showFilter()">Filter<i id="arrow_updown" id="updown_up"></i></button>
+    </div>
+    <div id = "filter_Container">
+      <form name="myForm" id = "sortingForm_container">
+        <label for="degree">Degree:</label>
+        <br>
+        <br>
+        <input type = "radio" name = "degree" value = "BSCS"/>
+        <label for="degree">BSCS</label>
+        <br>
+        <input type = "radio" name = "degree" value = "BSINFOTECH"/>
+        <label for="degree">BSINFOTECH</label>
+        <br>
+        <input type = "radio" name = "degree" value = "BSCpE"/>
+        <label for="degree">BSCpE</label>
+        <br>
+        <br>
+        <label id = "yearList_Title"for="yearList">Year</label>
+        <br>
+        <select id = "yearList" name ="yearList" onchange="">
+          <option value = "2009">2009</option>
+          <option value = "2010">2010</option>
+          <option value = "2011">2011</option>
+          <option value = "2012">2012</option>
+          <option value = "2013">2013</option>
+          <option value = "2014">2014</option>
+          <option value = "2015">2015</option>
+          <option value = "2016">2016</option>
+          <option value = "2017">2017</option>
+          <option value = "2018">2018</option>
+          <option value = "2019">2019</option>
+          <option value = "2020">2020</option>
+        </select>
+      </form>
       <button id = "submitBtn" onclick="submitForm()">SUBMIT</button>
-    </form>
+    </div>
   </div>
+
 <div id="pdf_Container">
+
 </div>
 <script src="main.js"></script>
 </body>
