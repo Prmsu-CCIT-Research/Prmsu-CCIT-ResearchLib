@@ -37,9 +37,11 @@
         <label for="degree">BSCpE</label>
         <br>
         <br>
-        <label id = "yearList_Title"for="yearList">Year</label>
+        <label id = "yearList_Title"for="yearList">Select Year</label>
         <br>
         <select id = "yearList" name ="yearList" onchange="">
+          <!-- <option disabled selected value> Select Year </option> -->
+          <option value = "">Year</option>
           <option value = "2009">2009</option>
           <option value = "2010">2010</option>
           <option value = "2011">2011</option>
@@ -54,13 +56,14 @@
           <option value = "2020">2020</option>
         </select>
       </form>
-      <button id = "submitBtn" onclick="submitForm()">SUBMIT</button>
+      <button id = "submitBtn" onclick="submitForm()">Enter</button>
     </div>
   </div>
 
 <div id="pdf_Container">
 
 </div>
+<p id = "numberOfList"> 0 Item</p>
 <script src="main.js"></script>
 </body>
 </html>

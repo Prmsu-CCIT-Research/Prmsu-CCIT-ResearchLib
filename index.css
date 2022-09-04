@@ -135,6 +135,7 @@
 
 #searchAndFilter_Container #submitBtn {
   position: relative;
+  width: 5rem;
   margin-top: 20px;
 }
 
@@ -144,19 +145,51 @@
   top: 50px;
   width: 60%;
   height: 500px;
-  border: 2px solid red;
+  background-color: grey;
 }
 
 #pdf_Container #pdfFiles {
   position: relative;
   font-size: 20px;
   left: 10px;
+  margin-top: 10px;
+  color: white;
 }
 
 #pdf_Container #yearList {
   position: relative;
   width: 200px;
   color: red;
+}
+
+#pdf_Container #pdfLinkFiles {
+  position: relative;
+  color: black;
+  font-weight: 600;
+}
+
+#pdf_Container #pdfLinkFiles:hover {
+  color: white;
+}
+
+#numberOfList {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  left: 1100px;
+  top: -70px;
+  font-size: 20px;
+  width: 11%;
+  height: 50px;
 }
 
 @media only screen and (max-width: 500px) and (max-width: 700px) {
