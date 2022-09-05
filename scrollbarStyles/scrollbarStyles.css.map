@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "scrollbarStyle.scss"
+        "scrollbarStyles.scss"
     ],
     "names": [],
-    "file": "scrollbarStyle.css"
+    "file": "scrollbarStyles.css"
 }
