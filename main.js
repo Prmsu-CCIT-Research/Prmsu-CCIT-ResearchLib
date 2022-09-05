@@ -1102,7 +1102,11 @@ function showFilter(){
 }
 
 var searchBtn = document.getElementById("searchNameBTn");
-function searchTitle(){
+document.addEventListener('keydown',searchTitle)
+
+function searchTitle(e){
+  const {key} = e;
+  console.log(key);
   let nameValue = document.getElementById("searchTitle").value;
   let degreeValue = document.getElementById("inputDegree").value;
   let nameValueArrayInWords = nameValue.split(" ");
@@ -1111,7 +1115,7 @@ function searchTitle(){
   let anchorElements = "";
   let fileNameArray = [];
   
-  if(degreeValue.toLowerCase() === "bscs"){
+  if(degreeValue.toLowerCase() === "bscs" && key.toLowerCase() === 'enter'){
     // let searchButton = document.getElementById("searchTitleBtn").value;
     for(let i = 0; i < BSCSFiles.length; i++){
       let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
@@ -1128,7 +1132,7 @@ function searchTitle(){
         if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
           fileNameArray = [];
         }
-      else if(searchArray === fileNameJoin){
+      else if(searchArray === fileNameJoin && key.toLowerCase() === 'enter'){
           compareName += `${BSCSFiles[i].filename}\n`;
           anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
           fileNameArray = [];
@@ -1136,7 +1140,7 @@ function searchTitle(){
       }
     }
   } 
-  else if(degreeValue.toLowerCase() === "bsinfotech"){
+  else if(degreeValue.toLowerCase() === "bsinfotech" && key.toLowerCase() === 'enter'){
     // let searchButton = document.getElementById("searchTitleBtn").value;
     for(let i = 0; i < BsinfotechFiles.length; i++){
       let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
@@ -1191,7 +1195,16 @@ function searchTitle(){
 }
 searchBtn.addEventListener('click',searchTitle)
 
-function submitForm(){
+// document.addEventListener('keydown',logkey)
+
+//trial keydown
+// function logkey(e){
+//   const {key} = e;
+//   key.toLowerCase() === 'enter' ? console.log(key) : console.log("error");
+// }
+
+
+function submitForm(e){
   var degreeFormValue = document.myForm.degree.value; 
   var yearValue = document.getElementById("yearList").value;
   console.log(yearValue);
