@@ -19,18 +19,20 @@
   margin-top: 30px;
   border-right: 5px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 300px;
-  height: 600px;
+  width: 550px;
+  height: 800px;
   
   #search_Container{
     position: relative;
     display: flex;
-    justify-content: center;
+    padding-left: 40px;
+    // justify-content: center;
+    top: -250px;
     width: 100%;
     height: 200px;
     overflow-y:hidden;
-    margin-top: 30px;
     // border: 2px solid blue;
     
     #searchingForm_container{
@@ -40,26 +42,32 @@
       top: 20px;
   
       #searchTitle{
-        width: 200px;
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
       }
       #inputDegree{
         margin-top: 10px;
-        width: 200px;
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
       }
       #searchNameBTn{
         margin-top: 10px;
-        width: 70px;
+        width: 120px;
+        height: 40px;
+        font-size: 15px;
       }
     }
   }
   #showFilter_Container{
-    position: absolute;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 10%;
+    padding-left: 40px;
+    width: 100%;
     height: 50px;
-    top: 270px;
+    top: -170px;
     // border: 2px solid red;
     #arrow_updown{
       margin-left: 10px;
@@ -80,56 +88,64 @@
       font-size: 20px;
       overflow-y: hidden;
       letter-spacing: 0.05em;
-      border: 2px solid black;
+      // border: 2px solid black;
       height: 50px;
-      outline: 0;
       text-align: left;
       min-width: 100px;
       // justify-content: space-between;
       color: black;
       cursor: pointer;
+
+      &:hover{
+        color: red;
+      }
+
     }
   }
   #filter_Container{
     position: absolute;
     padding-left: 40px;
     padding-top: 15px;
-    top: 350px;
+    top: 450px;
     border-top: 2px solid brown;
-    height: 200px;
-    width: 15%;
+    height: 300px;
+    width: 510px;
   
     #sortingForm_container{
-
+      font-size: 25px;
       #yearList_Title{
         position: relative;
         margin-top: 20px;
       }
       #yearList{
-        width: 100px;
+        font-size: 20px;
+        width: 150px;
+        height: 30px;
       }
     }
   }
   #submitBtn{
     position: relative;
-    width: 5rem;
+    font-size: 20px;
+    width: 6rem;
+    height: 40px;
     margin-top: 20px;
   }  
 }
 
 #pdf_Container{
   position: absolute;
-  left: 350px;
+  left: 600px;
   top: 50px;
   width: 65%;
-  height: 500px;
+  height: 700px;
   @include scrollbar();
   -webkit-scrollbar: 20px;
   background-color: whitesmoke;
   // border: 2px solid red;
   #pdfFiles{
     position: relative;
-    font-size: 20px;
+    font-size: 25px;
     left: 10px;
     margin-top: 10px;
     color: transparent;
@@ -148,120 +164,146 @@
       color: darkgoldenrod;
     }
   }
+  #noFiles{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 30px;
+  }
 }
 #numberOfList{
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  left: 1170px;
-  top: -70px;
-  font-size: 20px;
+  // border-top: 2px solid black;
+  // border-left: 2px solid black;
+  right: 70px;
+  bottom: 70px;
+  font-size: 30px;
   width: 11%;
+  color: black;
   height: 50px;
 }
 
-@media only screen and (max-width: 500px) and (max-width: 700px) {
-  #search_Container{
-    position: absolute;
-    top: 20px;
-    width: 100%;
-    height: 100px;
-
-    #searchingForm_container{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 0px;
-      border: 2px solid green ;
-      height: 80px;
-      #searchTitle{
-        margin-top: 0px;
-        width: 180px;
-    
-      }
-      #inputDegree{
-        margin-top: 5px;
-        width: 180px;
-      }
-      #searchNameBTn{
-        position: relative;
-        top: 10px;
-      }
-    }
-    #sortingForm_container{
-      margin-top: 10px;
-      border: 2px solid black;
-      height: 130px;
-      #yearList{
-        width: 100px;
-      }
-    }
-    #submitBtn{
-      position: relative;
-      left: 150px;
-      top: -20px;
-    }
-  }
-  #showFilter_Container{
-    position: relative;
+@media only screen and (max-width: 500px){
+  #searchAndFilter_Container{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
     width: 100%;
-    height: 30px;
-    top: 130px;
-    border: 2px solid red;
-    #showFilterButton{
-      position: relative;
-      background: darkgoldenrod;
-      padding: 5px 10px;
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      border: 0;
-      outline: 0;
-      text-align: left;
-      min-width: 100px;
-      // justify-content: space-between;
-      color: #f5f5f5;
-      cursor: pointer;
+    padding-left: -20px;
+    padding-right: 100px;
+
+    #search_Container{
+      margin: 0px;
+      left: -35px;
+      width: 100%;
+      height: 150px;
   
-      &::after{
-        font-family: sans-serif;
-        content: "▼";
-        padding-left: 0.5em;
+      #searchingForm_container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+        overflow-x: hidden;
+        border: 2px solid green ;
+        height: 200px;
+        width: 80%;
+        #searchTitle{
+          margin-top: 10px;
+          width: 80%;
+      
+        }
+        #inputDegree{
+          margin-top: 5px;
+          width: 80%;
+        }
+        #searchNameBTn{
+          position: relative;
+          top: 10px;
+        }
+      }
+      #sortingForm_container{
+        margin-top: 10px;
+        border: 2px solid black;
+        height: 130px;
+        #yearList{
+          width: 100px;
+        }
+      }
+      #submitBtn{
+        position: relative;
+        left: 150px;
+        top: -20px;
       }
     }
-  }
+    #showFilter_Container{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      width: 50%;
+      height: 50px;
+      top: 220px;
+      left: 50px;
+      overflow-y: hidden;
+      border: 2px solid blue;
+      #showFilterButton{
+        position: relative;
+        background: whitesmoke;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        border: 2px solid black;
+        letter-spacing: 0.05em;
+        outline: 0;
+        text-align: left;
+        min-width: 100px;
+        
+        // justify-content: space-between;
+        color: black;
+        cursor: pointer;
+      }
+    }
+  
+    #filter_Container{
+      position: absolute;
+      display: flex;
+      overflow-y: hidden;
+      top: 300px;
+      background-color: whitesmoke;
+      // border: 2px solid gold;
+      height: 200px;
+      width: 50%;
 
-  #filter_Container{
-    position: absolute;
-    display: block;
-    top: 170px;
-    border: 2px solid gold;
-    height: 150px;
-    width: 100%;
+      #sortingForm_container{
+      }
+    }
   }
   #pdf_Container{
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: left;
-    top: 300px;
+    top: 400px;
     left: 0px;
     width: 100%;
+    // border: 2px solid red;
     #pdfFiles{
       position: relative;
       left: 10px;
-      font-size: 10px;
     }
     #yearList{
       position: relative;
-      
       width: 200px;
+    }
+    #pdfLinkFiles{
+      position: relative;
       color: red;
+      font-weight: 600;
+  
+      &:hover{
+        color: darkgoldenrod;
+      }
     }
   }
 }

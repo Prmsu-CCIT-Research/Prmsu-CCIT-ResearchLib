@@ -1087,9 +1087,13 @@ var BsinfotechFiles =[{
 var pdfContainer = document.getElementById("pdf_Container");
 var numberOfList = document.getElementById("numberOfList");
 var filterArrow = document.getElementById("arrow_updown");
-
 var filter_Container = document.getElementById("filter_Container");
 filter_Container.style.display = 'none';
+var boolShowFilter = true;
+var boolShowFilter2 = true;
+var smallMediaQuery = window.matchMedia("(max-width: 700px)");
+console.log(smallMediaQuery.matches);
+
 function showFilter(){
   if(filter_Container.style.display === 'none'){
     filter_Container.style.display = 'block';
@@ -1099,14 +1103,23 @@ function showFilter(){
     filter_Container.style.display = 'none';
     filterArrow.style.transform = "rotate(227deg)"
   }
+  if(smallMediaQuery.matches && boolShowFilter){
+    filter_Container.style.display = 'block';
+    pdfContainer.style.top = '570px';
+    filterArrow.style.transform = "rotate(45deg)"
+    boolShowFilter = false;
+  }
+  else if(smallMediaQuery.matches && !boolShowFilter){
+    console.log("hopo")
+    filter_Container.style.display = 'none';
+    pdfContainer.style.top = '400px';
+    filterArrow.style.transform = "rotate(227deg)"
+    boolShowFilter = true;
+  }
 }
-
 var searchBtn = document.getElementById("searchNameBTn");
-document.addEventListener('keydown',searchTitle)
 
-function searchTitle(e){
-  const {key} = e;
-  console.log(key);
+function searchTitle(){
   let nameValue = document.getElementById("searchTitle").value;
   let degreeValue = document.getElementById("inputDegree").value;
   let nameValueArrayInWords = nameValue.split(" ");
@@ -1115,7 +1128,7 @@ function searchTitle(e){
   let anchorElements = "";
   let fileNameArray = [];
   
-  if(degreeValue.toLowerCase() === "bscs" && key.toLowerCase() === 'enter'){
+  if(degreeValue.toLowerCase() === "bscs"){
     // let searchButton = document.getElementById("searchTitleBtn").value;
     for(let i = 0; i < BSCSFiles.length; i++){
       let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
@@ -1132,7 +1145,7 @@ function searchTitle(e){
         if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
           fileNameArray = [];
         }
-      else if(searchArray === fileNameJoin && key.toLowerCase() === 'enter'){
+      else if(searchArray === fileNameJoin){
           compareName += `${BSCSFiles[i].filename}\n`;
           anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
           fileNameArray = [];
@@ -1140,7 +1153,7 @@ function searchTitle(e){
       }
     }
   } 
-  else if(degreeValue.toLowerCase() === "bsinfotech" && key.toLowerCase() === 'enter'){
+  else if(degreeValue.toLowerCase() === "bsinfotech"){
     // let searchButton = document.getElementById("searchTitleBtn").value;
     for(let i = 0; i < BsinfotechFiles.length; i++){
       let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
@@ -1197,14 +1210,13 @@ searchBtn.addEventListener('click',searchTitle)
 
 // document.addEventListener('keydown',logkey)
 
-//trial keydown
 // function logkey(e){
 //   const {key} = e;
 //   key.toLowerCase() === 'enter' ? console.log(key) : console.log("error");
 // }
 
 
-function submitForm(e){
+function submitForm(){
   var degreeFormValue = document.myForm.degree.value; 
   var yearValue = document.getElementById("yearList").value;
   console.log(yearValue);
@@ -1234,7 +1246,7 @@ function submitForm(e){
         checkFiles = false;
       }
       else if(checkFiles === true && i === BscpeFiles.length-1){
-        anchorElements = "No Files Found";
+        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
       }
     }
   }
@@ -1255,7 +1267,7 @@ function submitForm(e){
         checkFiles = false;
       }
       else if(checkFiles === true && i === BSCSFiles.length-1){
-        anchorElements = "No Files Found";
+        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
       }
     }
   }
@@ -1274,7 +1286,7 @@ function submitForm(e){
         checkFiles = false;
       }
       else if(checkFiles === true && i === BsinfotechFiles.length-1){
-        anchorElements = "No Files Found";
+        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
       }
     }
   }

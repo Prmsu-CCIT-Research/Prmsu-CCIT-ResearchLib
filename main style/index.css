@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0px;
   padding: 0px;
@@ -22,11 +21,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 300px;
-  height: 600px;
+  width: 550px;
+  height: 800px;
 }
 
 #searchAndFilter_Container #search_Container {
@@ -34,13 +37,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  padding-left: 40px;
+  top: -250px;
   width: 100%;
   height: 200px;
   overflow-y: hidden;
-  margin-top: 30px;
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container {
@@ -56,33 +57,37 @@
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container #searchTitle {
-  width: 200px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container #inputDegree {
   margin-top: 10px;
-  width: 200px;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container #searchNameBTn {
   margin-top: 10px;
-  width: 70px;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
 }
 
 #searchAndFilter_Container #showFilter_Container {
-  position: absolute;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 10%;
+  padding-left: 40px;
+  width: 100%;
   height: 50px;
-  top: 270px;
+  top: -170px;
 }
 
 #searchAndFilter_Container #showFilter_Container #arrow_updown {
@@ -105,23 +110,29 @@
   font-size: 20px;
   overflow-y: hidden;
   letter-spacing: 0.05em;
-  border: 2px solid black;
   height: 50px;
-  outline: 0;
   text-align: left;
   min-width: 100px;
   color: black;
   cursor: pointer;
 }
 
+#searchAndFilter_Container #showFilter_Container #showFilterButton:hover {
+  color: red;
+}
+
 #searchAndFilter_Container #filter_Container {
   position: absolute;
   padding-left: 40px;
   padding-top: 15px;
-  top: 350px;
+  top: 450px;
   border-top: 2px solid brown;
-  height: 200px;
-  width: 15%;
+  height: 300px;
+  width: 510px;
+}
+
+#searchAndFilter_Container #filter_Container #sortingForm_container {
+  font-size: 25px;
 }
 
 #searchAndFilter_Container #filter_Container #sortingForm_container #yearList_Title {
@@ -130,21 +141,25 @@
 }
 
 #searchAndFilter_Container #filter_Container #sortingForm_container #yearList {
-  width: 100px;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
 }
 
 #searchAndFilter_Container #submitBtn {
   position: relative;
-  width: 5rem;
+  font-size: 20px;
+  width: 6rem;
+  height: 40px;
   margin-top: 20px;
 }
 
 #pdf_Container {
   position: absolute;
-  left: 350px;
+  left: 600px;
   top: 50px;
   width: 65%;
-  height: 500px;
+  height: 700px;
   -webkit-scrollbar: 20px;
   background-color: whitesmoke;
 }
@@ -176,7 +191,7 @@
 
 #pdf_Container #pdfFiles {
   position: relative;
-  font-size: 20px;
+  font-size: 25px;
   left: 10px;
   margin-top: 10px;
   color: transparent;
@@ -198,8 +213,14 @@
   color: darkgoldenrod;
 }
 
+#pdf_Container #noFiles {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
 #numberOfList {
-  position: relative;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -209,23 +230,34 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-top: 2px solid black;
-  border-left: 2px solid black;
-  left: 1170px;
-  top: -70px;
-  font-size: 20px;
+  right: 70px;
+  bottom: 70px;
+  font-size: 30px;
   width: 11%;
+  color: black;
   height: 50px;
 }
 
-@media only screen and (max-width: 500px) and (max-width: 700px) {
-  #search_Container {
-    position: absolute;
-    top: 20px;
+@media only screen and (max-width: 500px) {
+  #searchAndFilter_Container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border: 2px solid black;
     width: 100%;
-    height: 100px;
+    padding-left: -20px;
+    padding-right: 100px;
   }
-  #search_Container #searchingForm_container {
+  #searchAndFilter_Container #search_Container {
+    margin: 0px;
+    left: -35px;
+    width: 100%;
+    height: 150px;
+  }
+  #searchAndFilter_Container #search_Container #searchingForm_container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -237,76 +269,78 @@
         -ms-flex-align: center;
             align-items: center;
     margin-top: 0px;
+    overflow-x: hidden;
     border: 2px solid green;
-    height: 80px;
+    height: 200px;
+    width: 80%;
   }
-  #search_Container #searchingForm_container #searchTitle {
-    margin-top: 0px;
-    width: 180px;
+  #searchAndFilter_Container #search_Container #searchingForm_container #searchTitle {
+    margin-top: 10px;
+    width: 80%;
   }
-  #search_Container #searchingForm_container #inputDegree {
+  #searchAndFilter_Container #search_Container #searchingForm_container #inputDegree {
     margin-top: 5px;
-    width: 180px;
+    width: 80%;
   }
-  #search_Container #searchingForm_container #searchNameBTn {
+  #searchAndFilter_Container #search_Container #searchingForm_container #searchNameBTn {
     position: relative;
     top: 10px;
   }
-  #search_Container #sortingForm_container {
+  #searchAndFilter_Container #search_Container #sortingForm_container {
     margin-top: 10px;
     border: 2px solid black;
     height: 130px;
   }
-  #search_Container #sortingForm_container #yearList {
+  #searchAndFilter_Container #search_Container #sortingForm_container #yearList {
     width: 100px;
   }
-  #search_Container #submitBtn {
+  #searchAndFilter_Container #search_Container #submitBtn {
     position: relative;
     left: 150px;
     top: -20px;
   }
-  #showFilter_Container {
-    position: relative;
+  #searchAndFilter_Container #showFilter_Container {
+    position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 100%;
-    height: 30px;
-    top: 130px;
-    border: 2px solid red;
+    width: 50%;
+    height: 50px;
+    top: 220px;
+    left: 50px;
+    overflow-y: hidden;
+    border: 2px solid blue;
   }
-  #showFilter_Container #showFilterButton {
+  #searchAndFilter_Container #showFilter_Container #showFilterButton {
     position: relative;
-    background: darkgoldenrod;
+    background: whitesmoke;
     padding: 5px 10px;
     text-transform: uppercase;
     font-weight: 600;
+    border: 2px solid black;
     letter-spacing: 0.05em;
-    border: 0;
     outline: 0;
     text-align: left;
     min-width: 100px;
-    color: #f5f5f5;
+    color: black;
     cursor: pointer;
   }
-  #showFilter_Container #showFilterButton::after {
-    font-family: sans-serif;
-    content: "▼";
-    padding-left: 0.5em;
-  }
-  #filter_Container {
+  #searchAndFilter_Container #filter_Container {
     position: absolute;
-    display: block;
-    top: 170px;
-    border: 2px solid gold;
-    height: 150px;
-    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    overflow-y: hidden;
+    top: 300px;
+    background-color: whitesmoke;
+    height: 200px;
+    width: 50%;
   }
   #pdf_Container {
-    position: relative;
+    position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -317,19 +351,25 @@
     -webkit-box-align: left;
         -ms-flex-align: left;
             align-items: left;
-    top: 300px;
+    top: 400px;
     left: 0px;
     width: 100%;
   }
   #pdf_Container #pdfFiles {
     position: relative;
     left: 10px;
-    font-size: 10px;
   }
   #pdf_Container #yearList {
     position: relative;
     width: 200px;
+  }
+  #pdf_Container #pdfLinkFiles {
+    position: relative;
     color: red;
+    font-weight: 600;
+  }
+  #pdf_Container #pdfLinkFiles:hover {
+    color: darkgoldenrod;
   }
 }
 /*# sourceMappingURL=index.css.map */
