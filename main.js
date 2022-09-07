@@ -3,57 +3,75 @@ var BscpeFiles = [{
   degree:"BSCpE",
   filename:"Automatic Visitor Counter",
   url:"CCIT Thesis Combined/BS CpE/2011/Automatic Visitor Counter.pdf",
-  date:"2011"
+  date:"2011",
+  author: ['Jenefer jane Correa','Rijean Ursua','Edelyn Romanban'],
+  adviser: "melojean marave"
 },
 {
   degree:"BSCpE",
   filename:"Remote Controlled Digital Alarm Clock",
   url:"CCIT Thesis Combined/BS CpE/2011/Remote Controlled Digital Alarm Clock.pdf ",
-  date:"2011"
+  date:"2011",
+  author: ['jerwin siringan','cassandra ramos','honelyn quilanlan'],
+  adviser: "melojean marave"
 },
 //----------------------------------BSCPE 2012
 {
   degree:"BSCpE",
   filename:"E-Scoreboard",
   url:"CCIT Thesis Combined/BS CpE/2012/E-Scoreboard.pdf",
-  date:"2012"
+  date:"2012",
+  author: ['Jenielyn merete','antonette nengasca','sian de los reyes'],
+  adviser: "melojean marave"
 },
 {
   degree:"BSCpE",
   filename:"Motion Security Camera",
   url:"CCIT Thesis Combined/BS CpE/2012/Motion Security Camera.pdf",
-  date:"2012"
+  date:"2012",
+  author: ['jessica fenollar','catherine maloloy-on','richard ton ton pineda'],
+  adviser: "melojean marave"
 },
 {
   degree:"BSCpE",
   filename:"Password Detection Vault with SMS Alert",
   url:"CCIT Thesis Combined/BS CpE/2012/Password Detection Vault with SMS Alert.pdf",
-  date:"2012"
+  date:"2012",
+  author: ['Dennis edulag','rexie manalo','edrian santos'],
+  adviser: "melojean marave"
 },
 //----------------------------------BSCPE 2013
 {
   degree:"BSCpE",
   filename:"Attendance Recording Device for CCIT Faculty using radio frequency identification",
   url:"CCIT Thesis Combined/BS CpE/2013/Attendance Recording Device for CCIT Faculty using radio frequency identification.pdf",
-  date:"2013"
+  date:"2013",
+  author: ['richelle diohen','robilyn dabon'],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Automated Locker Via Radio Frequency Identification",
   url:"CCIT Thesis Combined/BS CpE/2013/Automated Locker Via Radio Frequency Identification.pdf",
-  date:"2013"
+  date:"2013",
+  author: ['maria regina asis','charmene diano','janine domacena'],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Development of Microcontroller Based Biometric Classroom Door Lock",
   url:"CCIT Thesis Combined/BS CpE/2013/Development of Microcontroller Based Biometric Classroom Door Lock.pdf",
-  date:"2013"
+  date:"2013",
+  author: ['kirk lee leomo','vanessa mae arizo','joselito dorde'],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Student Monitoring Device Using Fingerprint Scanning",
   url:"CCIT Thesis Combined/BS CpE/2013/Student Monitoring Device Using Fingerprint Scanning.pdf",
-  date:"2013"
+  date:"2013",
+  author: ['karl louie aragon','kristine dianne dolojan','ronnel dugay'],
+  adviser: "ricky barrera"
 },
 //----------------------------------BSCPE 2014
 {
@@ -301,7 +319,7 @@ var BscpeFiles = [{
   filename:"Smart Chess Board with Clock and Move Recorder",
   url:"CCIT Thesis Combined/BS CpE/2020/Smart Chess Board with Clock and Move Recorder.pdf",
   date:"2020"
-},]
+}]
 
 var BSCSFiles = [{
   //-----------------------------BSCS 2010
@@ -1121,88 +1139,61 @@ var searchBtn = document.getElementById("searchNameBTn");
 
 function searchTitle(){
   let nameValue = document.getElementById("searchTitle").value;
-  let degreeValue = document.getElementById("inputDegree").value;
   let nameValueArrayInWords = nameValue.split(" ");
-  let compareName = "";
-  let searchArray = "";
   let anchorElements = "";
-  let fileNameArray = [];
-  
-  if(degreeValue.toLowerCase() === "bscs"){
-    // let searchButton = document.getElementById("searchTitleBtn").value;
+    //searching for bscs files
     for(let i = 0; i < BSCSFiles.length; i++){
       let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
-      let fileNameSplit = fileNameInArrayWords.split(" ");
-      
-      for(let j = 0; j < nameValueArrayInWords.length; j++){
-        console.log(fileNameSplit[j])
-        if(nameValueArrayInWords[j].toLowerCase() === fileNameSplit[j]){
-          
-          searchArray = nameValue.toLowerCase()
-          fileNameArray.push(fileNameSplit[j]);
-          var fileNameJoin = fileNameArray.join(' ');
+      let searchNameLength = 0;
+    
+       for(let j = 0; j < nameValueArrayInWords.length; j++){
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+          searchNameLength++;
         }
-        if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
-          fileNameArray = [];
+        else if(searchNameLength !== nameValueArrayInWords.length){
+          searchNameLength = 0;
         }
-      else if(searchArray === fileNameJoin){
-          compareName += `${BSCSFiles[i].filename}\n`;
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
           anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-          fileNameArray = [];
         }
+       
       }
     }
-  } 
-  else if(degreeValue.toLowerCase() === "bsinfotech"){
-    // let searchButton = document.getElementById("searchTitleBtn").value;
+    //searching for bscpe files
     for(let i = 0; i < BsinfotechFiles.length; i++){
       let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
-      let fileNameSplit = fileNameInArrayWords.split(" ");
-      
-      for(let j = 0; j < nameValueArrayInWords.length; j++){
-        console.log(fileNameSplit[j])
-        if(nameValueArrayInWords[j].toLowerCase() === fileNameSplit[j]){
-          
-          searchArray = nameValue.toLowerCase()
-          fileNameArray.push(fileNameSplit[j]);
-          var fileNameJoin = fileNameArray.join(' ');
+      let searchNameLength = 0;
+    
+       for(let j = 0; j < nameValueArrayInWords.length; j++){
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+          searchNameLength++;
         }
-        if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
-          fileNameArray = [];
+        else if(searchNameLength !== nameValueArrayInWords.length){
+          searchNameLength = 0;
         }
-      else if(searchArray === fileNameJoin){
-          compareName += `${BsinfotechFiles[i].filename}\n`;
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
           anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-          fileNameArray = [];
         }
+       
       }
     }
-  }
-  else if(degreeValue.toLowerCase() === "bscpe"){
-    // let searchButton = document.getElementById("searchTitleBtn").value;
+    //searching for bsinfotech files
     for(let i = 0; i < BscpeFiles.length; i++){
       let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
-      let fileNameSplit = fileNameInArrayWords.split(" ");
-      
-      for(let j = 0; j < nameValueArrayInWords.length; j++){
-        console.log(fileNameSplit[j])
-        if(nameValueArrayInWords[j].toLowerCase() === fileNameSplit[j]){
-          
-          searchArray = nameValue.toLowerCase()
-          fileNameArray.push(fileNameSplit[j]);
-          var fileNameJoin = fileNameArray.join(' ');
+      let searchNameLength = 0;
+    
+       for(let j = 0; j < nameValueArrayInWords.length; j++){
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+          searchNameLength++;
         }
-        if(nameValueArrayInWords[j].toLowerCase() !== fileNameSplit[j]){
-          fileNameArray = [];
+        else if(searchNameLength !== nameValueArrayInWords.length){
+          searchNameLength = 0;
         }
-      else if(searchArray === fileNameJoin){
-          compareName += `${BscpeFiles[i].filename}\n`;
+        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
           anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-          fileNameArray = [];
         }
       }
     }
-  } 
   pdfContainer.innerHTML = anchorElements;
   pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
 }
@@ -1217,80 +1208,96 @@ searchBtn.addEventListener('click',searchTitle)
 
 
 function submitForm(){
+  let authorName = document.getElementById("searchAuthor").value.toLowerCase();
+  let adviserName = document.getElementById("searchAdviser").value.toLowerCase();
   var degreeFormValue = document.myForm.degree.value; 
   var yearValue = document.getElementById("yearList").value;
-  console.log(yearValue);
   var anchorElements = "";
-  var checkFiles = true;//To check if the year folder have files.
-  var yearValueNone = true;
+  let anchorPass = "";
+  console.log(yearValue);
+  
   //check if select year list has no value
-  if(yearValue){
-    yearValueNone = false;
-  }
-  else if(!yearValue){
-    yearValueNone = true;
-  }
+  // if(yearValue){
+  //   yearValueNone = false;
+  // }
+  // else if(!yearValue){
+  //   yearValueNone = true;
+  // }
 
-  if(degreeFormValue === "BSCpE" && yearValueNone === true){ // if year list has no value all research files of the chosen degree will be shown.
-    for(let i = 0; i < BscpeFiles.length; i++){
-      if(BscpeFiles[i].degree === "BSCpE"){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-    }
-  }
-  else if(degreeFormValue === "BSCpE" && yearValueNone === false){
-    for(let i = 0; i < BscpeFiles.length; i++){
-      if(BscpeFiles[i].degree === "BSCpE" && BscpeFiles[i].date === yearValue){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-      else if(checkFiles === true && i === BscpeFiles.length-1){
-        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-      }
-    }
-  }
+  // if(degreeFormValue === "BSCpE" && yearValueNone === true){ // if year list has no value all research files of the chosen degree will be shown.
+  //   for(let i = 0; i < BscpeFiles.length; i++){
+  //     if(BscpeFiles[i].degree === "BSCpE"){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //   }
+  // }
+  // else if(degreeFormValue === "BSCpE" && yearValueNone === false){
+  //   for(let i = 0; i < BscpeFiles.length; i++){
+  //     if(BscpeFiles[i].degree === "BSCpE" && BscpeFiles[i].date === yearValue){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //     else if(checkFiles === true && i === BscpeFiles.length-1){
+  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
+  //     }
+  //   }
+  // }
 
-  else if(degreeFormValue === "BSCS" && yearValueNone === true){
-    for(let i = 0; i < BSCSFiles.length; i++){
-      if(BSCSFiles[i].degree === "BSCS"){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-    }
-  }
+  // else if(degreeFormValue === "BSCS" && yearValueNone === true){
+  //   for(let i = 0; i < BSCSFiles.length; i++){
+  //     if(BSCSFiles[i].degree === "BSCS"){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //   }
+  // }
 
-  else if(degreeFormValue === "BSCS" && yearValueNone === false){
-    for(let i = 0; i < BSCSFiles.length; i++){
-      if(BSCSFiles[i].degree === "BSCS" && BSCSFiles[i].date === yearValue){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-      else if(checkFiles === true && i === BSCSFiles.length-1){
-        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-      }
+  // else if(degreeFormValue === "BSCS" && yearValueNone === false){
+  //   for(let i = 0; i < BSCSFiles.length; i++){
+  //     if(BSCSFiles[i].degree === "BSCS" && BSCSFiles[i].date === yearValue){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //     else if(checkFiles === true && i === BSCSFiles.length-1){
+  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
+  //     }
+  //   }
+  // }
+  // else if(degreeFormValue === "BSINFOTECH" && yearValueNone === true){
+  //   for(let i = 0; i < BsinfotechFiles.length; i++){
+  //     if(BsinfotechFiles[i].degree === "BSINFOTECH"){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //   }
+  // }
+  // else if(degreeFormValue === "BSINFOTECH" && yearValueNone === false){
+  //   for(let i = 0; i < BsinfotechFiles.length; i++){
+  //     if(BsinfotechFiles[i].degree === "BSINFOTECH" && BsinfotechFiles[i].date === yearValue){
+  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+  //       checkFiles = false;
+  //     }
+  //     else if(checkFiles === true && i === BsinfotechFiles.length-1){
+  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
+  //     }
+  //   }
+  // }
+  for(let i = 0; i < BscpeFiles.length; i++){
+    if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date){
+        
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+      console.log("read")
+      
+      
     }
+    console.log(i)
   }
-  else if(degreeFormValue === "BSINFOTECH" && yearValueNone === true){
-    for(let i = 0; i < BsinfotechFiles.length; i++){
-      if(BsinfotechFiles[i].degree === "BSINFOTECH"){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-    }
-  }
-  else if(degreeFormValue === "BSINFOTECH" && yearValueNone === false){
-    for(let i = 0; i < BsinfotechFiles.length; i++){
-      if(BsinfotechFiles[i].degree === "BSINFOTECH" && BsinfotechFiles[i].date === yearValue){
-        anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-        checkFiles = false;
-      }
-      else if(checkFiles === true && i === BsinfotechFiles.length-1){
-        anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-      }
-    }
-  }
-
+  
   pdfContainer.innerHTML = anchorElements;
   pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
 }
+
+  
+
+

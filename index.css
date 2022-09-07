@@ -28,7 +28,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 350px;
+  width: 450px;
   height: 670px;
 }
 
@@ -37,24 +37,34 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 40px;
   top: -200px;
   width: 100%;
-  height: 200px;
+  height: 170px;
   overflow-y: hidden;
+  border: 2px solid green;
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
-  top: 20px;
+  padding-left: 20px;
+  height: 50px;
+  margin-top: 20px;
+  top: -50px;
+  left: 0px;
 }
 
 #searchAndFilter_Container #search_Container #searchingForm_container #searchTitle {
@@ -63,21 +73,7 @@
   font-size: 20px;
 }
 
-#searchAndFilter_Container #search_Container #searchingForm_container #inputDegree {
-  margin-top: 10px;
-  width: 250px;
-  height: 25px;
-  font-size: 20px;
-}
-
-#searchAndFilter_Container #search_Container #searchingForm_container #searchNameBTn {
-  margin-top: 10px;
-  width: 120px;
-  height: 30px;
-  font-size: 15px;
-}
-
-#searchAndFilter_Container #showFilter_Container {
+#searchAndFilter_Container #search_Container #searchBtn_container {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -85,40 +81,38 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 40px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: -30px;
   width: 100%;
   height: 50px;
-  top: -170px;
 }
 
-#searchAndFilter_Container #showFilter_Container #arrow_updown {
-  margin-left: 10px;
-  border: solid blue;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(227deg);
-  -webkit-transform: rotate(227deg);
+#searchAndFilter_Container #search_Container #searchBtn_container #searchNameBTn {
+  position: relative;
+  left: -75px;
+  width: 120px;
+  height: 30px;
+  font-size: 15px;
 }
 
-#searchAndFilter_Container #showFilter_Container #showFilterButton {
+#searchAndFilter_Container #search_Container #searchBtn_container #showFilterButton {
   position: relative;
   background: whitesmoke;
-  padding: 5px 10px;
-  height: 30px;
+  height: 20px;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 15px;
   overflow-y: hidden;
   letter-spacing: 0.05em;
-  height: 50px;
-  text-align: left;
-  min-width: 100px;
+  height: 30px;
+  width: 25%;
   color: black;
   cursor: pointer;
 }
 
-#searchAndFilter_Container #showFilter_Container #showFilterButton:hover {
+#searchAndFilter_Container #search_Container #searchBtn_container #showFilterButton:hover {
   color: red;
 }
 
@@ -158,7 +152,7 @@
 
 #pdf_Container {
   position: absolute;
-  left: 400px;
+  left: 500px;
   top: 50px;
   width: 72%;
   height: 600px;

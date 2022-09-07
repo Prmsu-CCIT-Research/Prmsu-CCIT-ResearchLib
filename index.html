@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href = "index.css">
-  <title>Document</title>
+  <link rel="stylesheet" href = "debug.css">
+  <title>Research repository</title>
 </head>
 <body>
   <nav id = "navbar_container">
@@ -15,15 +16,22 @@
     <div id = "search_Container">
       <form id = "searchingForm_container">
         <input id = "searchTitle" name="Filename" type="text" placeholder="Filename"/>
-        <input id = "inputDegree" type="text" placeholder="Degree"/>
-        <input type="button" id ="searchNameBTn" value="SEARCH">
+        <!-- <input id = "inputDegree" type="text" placeholder="Degree"/> -->
+        <!-- <input type="button" id ="searchNameBTn" value="SEARCH"> -->
       </form>
-    </div>
-    <div id="showFilter_Container">
-      <button id ="showFilterButton"  onclick="showFilter()">Filter<i id="arrow_updown" id="updown_up"></i></button>
+      <div id = searchBtn_container>
+        <button id ="searchNameBTn"  onclick="searchTitle()">SEARCH</button>
+        <button id ="showFilterButton"  onclick="showFilter()">Filter<i id="arrow_updown" id="updown_up"></i></button>
+      </div>
     </div>
     <div id = "filter_Container">
       <form name="myForm" id = "sortingForm_container">
+        <input id = "searchAuthor" name="author" type="text" placeholder="Author"/>
+        <br>
+        <br>
+        <input id = "searchAdviser" name="adviser" type="text" placeholder="Adviser"/>
+        <br>
+        <br>
         <label for="degree">Degree:</label>
         <br>
         <br>
@@ -61,7 +69,7 @@
   </div>
 
 <div id="pdf_Container">
-
+  
 </div>
 <p id = "numberOfList"></p>
 <script src="main.js"></script>
