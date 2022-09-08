@@ -78,247 +78,327 @@ var BscpeFiles = [{
   degree:"BSCpE",
   filename:"Android Phone Controlled AC Outlet Using Anito Technology",
   url:"CCIT Thesis Combined/BS CpE/2014/Android Phone Controlled AC Outlet Using Anito Technology.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["jayson allejos","eugene agapito","wayne marafina"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Coin-Operated Printing Machine",
   url:"CCIT Thesis Combined/BS CpE/2014/Coin-Operated Printing Machine.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["eugene menor","dennis olamit","jayvee pamintuan"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Garbage Overflow Detection Using GSM Module",
   url:"CCIT Thesis Combined/BS CpE/2014/Garbage Overflow Detection Using GSM Module.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["wrronda Ibo","jie-ann datugan"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Remote Controlled Robotic Car Using Touchpad  Coordinates",
   url:"CCIT Thesis Combined/BS CpE/2014/Remote Controlled Robotic Car Using Touchpad  Coordinates.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["cristina salamanca","stephen llyod velarde","tifanie superar"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"RF Based Automatic Electric Meter Reading",
   url:"CCIT Thesis Combined/BS CpE/2014/RF Based Automatic Electric Meter Reading.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["maria virginia ebalida","rowin nic apino","sarah abangan"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Solar Tracking and Voltage Monitoring Device",
   url:"CCIT Thesis Combined/BS CpE/2014/Solar Tracking and Voltage Monitoring Device.pdf",
-  date:"2014"
+  date:"2014",
+  author: ["ace israel falaminiano","sarah may torres","sheryl villaluna"],
+  adviser: "ricky barrera"
 },
 //----------------------------------BSCPE 2015
 {
   degree:"BSCpE",
   filename:"DTMF Home Appliance Switching Control",
   url:"CCIT Thesis Combined/BS CpE/2015/DTMF Home Appliance Switching Control.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["marc ianne taberdo","romar jay quijano","aljohn tongson"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Motion Detection System",
   url:"CCIT Thesis Combined/BS CpE/2015/Motion Detection System.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["lexandro cancino","ken leonardo mose","reynaldo villanueva"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Portable Charger Using Vibration Energy",
   url:"CCIT Thesis Combined/BS CpE/2015/Portable Charger Using Vibration Energy.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["jay elixir lapena","ivan nunokawa","rafael dequina"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Ultrasonic Distance Measuring Device",
   url:"CCIT Thesis Combined/BS CpE/2015/Ultrasonic Distance Measuring Device.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["kevin asombrado","dalton jay dayo","cristy ebuenga"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Voice-Activated Security Locker",
   url:"CCIT Thesis Combined/BS CpE/2015/Voice-Activated Security Locker.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["anthony conde","shiella mae parel","penny-lei trinidad"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Voice-Controlled Electric Fan",
   url:"CCIT Thesis Combined/BS CpE/2015/Voice-Controlled Electric Fan.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["jeric divino","alpha paudan","lezel dedicatoria"],
+  adviser: "ricky barrera"
 },
 //----------------------------------BSCPE 2016
 {
   degree:"BSCpE",
   filename:"Shopping Cart Automation",
   url:"CCIT Thesis Combined/BS CpE/2016/Shopping Cart Automation.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["john-vic faustino","regina amistad","may paradeza"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Wheel Alignment and Terrain Auto-Monitoring",
   url:"CCIT Thesis Combined/BS CpE/2016/Wheel Alignment and Terrain Auto-Monitoring.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["justine louise sison","donald edilor","jairus edulag"],
+  adviser: "ricky barrera"
 },
 //----------------------------------BSCPE 2017
 {
   degree:"BSCpE",
   filename:"Andoid Based Educational Tool in Computer Fundamentals",
   url:"CCIT Thesis Combined/BS CpE/2017/Andoid Based Educational Tool in Computer Fundamentals.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["joanna lorraine capor","mafil estrella"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCpE",
   filename:"Automatic Egg Incubator with Backup Battery (AEI)",
   url:"CCIT Thesis Combined/BS CpE/2017/Automatic Egg Incubator with Backup Battery (AEI).pdf",
-  date:"2017"
+  date:"2017",
+  author: ["blessed joy aramay","princess angelina dullas","mercedes estaris"],
+  adviser: "dionisio martin"
 },
 {
   degree:"BSCpE",
   filename:"Motorcycle Accident Detection with Trackng System",
   url:"CCIT Thesis Combined/BS CpE/2017/Motorcycle Accident Detection with Trackng System.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["sunshine baysa","bons marave","lovely pearl modelo"],
+  adviser: "dionisio martin"
 },
 {
   degree:"BSCpE",
   filename:"Motorcycle Alarm System (MAS)",
   url:"CCIT Thesis Combined/BS CpE/2017/Motorcycle Alarm System (MAS).pdf",
-  date:"2017"
+  date:"2017",
+  author: ["jamil elamparo","pamela fortin","oliver muyano"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"RC Lawn Mower",
   url:"CCIT Thesis Combined/BS CpE/2017/RC Lawn Mower.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["vincent acayan","saira morillo","apple garcia"],
+  adviser: "melojean marave"
 },
 {
   degree:"BSCpE",
   filename:"Smart Locking Door Using GSM",
   url:"CCIT Thesis Combined/BS CpE/2017/Smart Locking Door Using GSM.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["arrianne joy laroza","james charles lumabas","maikelyssa manuel"],
+  adviser: "melojean marave"
 },
 {
   degree:"BSCpE",
   filename:"Solar Tracking Device with AC Supply for Home Appliance",
   url:"CCIT Thesis Combined/BS CpE/2017/Solar Tracking Device with AC Supply for Home Appliance.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["jed elacion","jestoni maravillas","jhan rodlyn achacoso"],
+  adviser: "ricky barrera"
 },
 //----------------------------------BSCPE 2018
 {
   degree:"BSCpE",
   filename:"Automatic Stamping Machine (ASM)",
   url:"CCIT Thesis Combined/BS CpE/2018/Automatic Stamping Machine (ASM).pdf",
-  date:"2018"
+  date:"2018",
+  author: ["monica arangorin","brenda ferariza","ivy joy morete"],
+  adviser: "regina amistad"
 },
 {
   degree:"BSCpE",
   filename:"Biometric Door Locking System",
   url:"CCIT Thesis Combined/BS CpE/2018/Biometric Door Locking System.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["dianne rempillo","marywell bascull","marvin viduya"],
+  adviser: "mark gonzales"
 },
 //----------------------------------BSCPE 2019
 {
   degree:"BSCpE",
   filename:"Automated Direct Seeding Machine",
   url:"CCIT Thesis Combined/BS CpE/2019/Automated Direct Seeding Machine.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["claire marie rabaca","maria cielo manalo","kiecy molvizar","ella olipane"],
+  adviser: "bryan carlos acain"
 },
 {
   degree:"BSCpE",
   filename:"Biometric Attendance Recording System",
   url:"CCIT Thesis Combined/BS CpE/2019/Biometric Attendance Recording System.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["paolo david","gerson tiongson","fritz erroll alapan","kristian rae buenconsejo"],
+  adviser: "bryan carlos acain"
 },
 {
   degree:"BSCpE",
   filename:"Fingerprint-Based Locker for CCIT",
   url:"CCIT Thesis Combined/BS CpE/2019/Fingerprint-Based Locker for CCIT.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["michelle angela alejandro","gil francis sembrano","michael jay salazar","kenneth barrientos"],
+  adviser: "jamil elamparo"
 },
 {
   degree:"BSCpE",
   filename:"I-Plastic Bottle Recovery Station",
   url:"CCIT Thesis Combined/BS CpE/2019/I-Plastic Bottle Recovery Station.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["abel albuera","doreen rosete","christian famoleras","mark anthony victor corpuz"],
+  adviser: "glendon miclat"
 },
 {
   degree:"BSCpE",
   filename:"Indoor Fire Fighting Robot",
   url:"CCIT Thesis Combined/BS CpE/2019/Indoor Fire Fighting Robot.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["karl ivan denver canonizado","ricco angelu kiel lagus","mark joseph balmeo","jadwie vallespin"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Robotic Cleaning Machine for CCIT Classrooms",
   url:"CCIT Thesis Combined/BS CpE/2019/Robotic Cleaning Machine for CCIT Classrooms.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["loreal mendoza","willard garcia","jessa estella","nika bernal"],
+  adviser: "regina amistad"
 },
 {
   degree:"BSCpE",
   filename:"School Supplies Vendo Machine for CCIT",
   url:"CCIT Thesis Combined/BS CpE/2019/School Supplies Vendo Machine for CCIT.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["christine acenas","john paul asiatico","mayzelle canosa","shan michael laborce"],
+  adviser: "mark gonzales"
 },
 //----------------------------------BSCPE 2020
 {
   degree:"BSCpE",
   filename:"74 Series Chip Checker",
   url:"CCIT Thesis Combined/BS CpE/2020/74 Series Chip Checker.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["benjo castillo","john vincent evangelio","denver john flordeliz","alvin david navida"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"Automated Pool Water Surface Trash Collector",
   url:"CCIT Thesis Combined/BS CpE/2020/Automated Pool Water Surface Trash Collector.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["joseph agmata","mhelben joy metran","justine joy quines","shiela mae quitoriano"],
+  adviser: "glendon miclat"
 },
 {
   degree:"BSCpE",
   filename:"BML Body Temperature And Heart Rate Monitoring System",
   url:"CCIT Thesis Combined/BS CpE/2020/BML Body Temperature And Heart Rate Monitoring System.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["mark anthony bien cabal","martin louie cabal","virgilio dumaual","pete dion leo eclarinal"],
+  adviser: "bryan carlos acain"
 },
 {
   degree:"BSCpE",
   filename:"CCIT Laboratories Equipment and Asset Monitoring",
   url:"CCIT Thesis Combined/BS CpE/2020/CCIT Laboratories Equipment and Asset Monitoring.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["aurea moldo","jerick razon","john patrick mallari","jonathan baladiang"],
+  adviser: "regina amistad"
 },
 {
   degree:"BSCpE",
   filename:"Driver Drowsiness Detection Systen",
   url:"CCIT Thesis Combined/BS CpE/2020/Driver Drowsiness Detection Systen.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["christian paul ajoste","jeffrey fontillas","lerio tolentino","john rommel sevilla"],
+  adviser: "ricky barrera"
 },
 {
   degree:"BSCpE",
   filename:"jpg2pdf",
   url:"CCIT Thesis Combined/BS CpE/2020/jpg2pdf.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["joshua alviento","aljhay elamparo","aj flores","dan garry yap"],
+  adviser: "michael angela alejandro"
 },
 {
   degree:"BSCpE",
   filename:"Packed Rice Vending Machine",
   url:"CCIT Thesis Combined/BS CpE/2020/Packed Rice Vending Machine.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["christian roi elamparo","earl justin fontillas","ranniel mallari","jeon dantay"],
+  adviser: "regina amistad"
 },
 {
   degree:"BSCpE",
   filename:"Paper Shredder and Plastic Bottle Squeezer Trashcan",
   url:"CCIT Thesis Combined/BS CpE/2020/Paper Shredder and Plastic Bottle Squeezer Trashcan.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["karys aina joy canonizado","kres gilang fajar","noelle paula manglinong","bonifacio rabo","john marwell rosendo"],
+  adviser: "mark gonzales"
 },
 {
   degree:"BSCpE",
   filename:"Plactic Bottle and Aluminum Can (PBAC) Rice Exchanger Machine",
   url:"CCIT Thesis Combined/BS CpE/2020/Plactic Bottle and Aluminum Can (PBAC) Rice Exchanger Machine.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["rudy edralin","allan jay morillo","stephen carl opena","sam louise paglingayen"],
+  adviser: "froilan cantillo"
 },
 {
   degree:"BSCpE",
   filename:"Smart Chess Board with Clock and Move Recorder",
   url:"CCIT Thesis Combined/BS CpE/2020/Smart Chess Board with Clock and Move Recorder.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["oliver john basul","nikko credo","angel john delfin","jhenrick magpayo"],
+  adviser: "mark gonzales"
 }]
 
 var BSCSFiles = [{
@@ -326,347 +406,459 @@ var BSCSFiles = [{
   degree:"BSCS",
   filename:"Computer Based Class Schedule System for CCIT",
   url:"CCIT Thesis Combined/BSCS/2010/Computer Based Class Schedule System for CCIT.pdf",
-  date:"2010"
+  date:"2010",
+  author:["jomarp artates","maria crisanta laran"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Computer Based Record and Information System for DSWD",
   url:"CCIT Thesis Combined/BSCS/2010/Computer Based Record and Information System for DSWD.pdf",
-  date:"2010"
+  date:"2010",
+  author:["diana laguatan","rashid macatangcal","verlyn maniquiz"],
+  adviser: "menchie dela cruz"
 },
 //-----------------------------BSCS 2011
 {
   degree:"BSCS",
   filename:"Computerized Records Management System for LTMPC",
   url:"CCIT Thesis Combined/BSCS/2011/Computerized Records Management System for LTMPC.pdf",
-  date:"2011"
+  date:"2011",
+  author:["hydee laguatan","jellie ann minor","mary grace padrigo"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Development and Evaluation of Proposed Computer Aided Software in Mathematics",
   url:"CCIT Thesis Combined/BSCS/2011/Development and Evaluation of Proposed Computer Aided Software in Mathematics.pdf",
-  date:"2011"
+  date:"2011",
+  author:["mary anne josafat","jennica nacin","pia reyes"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"E-Timer for Computer Laboratories Usage for CCIT",
   url:"CCIT Thesis Combined/BSCS/2011/E-Timer for Computer Laboratories Usage for CCIT.pdf",
-  date:"2011"
+  date:"2011",
+  author:["andrew soriano","cindy april encarnacion","rey maranoc"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Electronic Grading System for Mambog Elementary School",
   url:"CCIT Thesis Combined/BSCS/2011/Electronic Grading System for Mambog Elementary School.pdf",
-  date:"2011"
+  date:"2011",
+  author:["raphael richard de luna","jovelone molino","dennis abille"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Information System for Barangay Taugtog",
   url:"CCIT Thesis Combined/BSCS/2011/Information System for Barangay Taugtog.pdf",
-  date:"2011"
+  date:"2011",
+  author:["jonalyn dequina","robert allan paneda","john paul albay"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Proposed Billing and Record Management System for Zameco I, Botolan, Zambales",
   url:"CCIT Thesis Combined/BSCS/2011/Proposed Billing and Record Management System for Zameco I, Botolan, Zambales.pdf",
-  date:"2011"
+  date:"2011",
+  author:["mark anthony agsaulio","leonardo carlo reyes","paul ryan urbano"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Proposed Development of Computer Aided Instruction Software in Social Studies for High School Student",
   url:"CCIT Thesis Combined/BSCS/2011/Proposed Development of Computer Aided Instruction Software in Social Studies for High School Student.pdf",
-  date:"2011"
+  date:"2011",
+  author:["glenda navarez","jobirizza doble","haidie joy sarmiento"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Proposed Online Information and Registration System for Initial Seminary Formation Year",
   url:"CCIT Thesis Combined/BSCS/2011/Proposed Online Information and Registration System for Initial Seminary Formation Year.pdf",
-  date:"2011"
+  date:"2011",
+  author:["keith john daos","ferlyn ella rayman","zyrell acenas"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Proposed Web-based Patient Information System for Sta. Cecilia Medical Center",
   url:"CCIT Thesis Combined/BSCS/2011/Proposed Web-based Patient Information System for Sta. Cecilia Medical Center.pdf",
-  date:"2011"
+  date:"2011",
+  author:["mary ann paudan","tiffany kay badar","mary rose calimlim"],
+  adviser: "menchie dela cruz"
 },
 //-----------------------------BSCS 2012
 {
   degree:"BSCS",
   filename:"Automated Record Management System for  Scholars",
   url:"CCIT Thesis Combined/BSCS/2012/Automated Record Management System for  Scholars.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["elaine custo","jocel anne soria","roda may aguilar"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Computer Aided Instruction for Basic Education of Santiago Elementary School in Botolan,Zambales",
   url:"CCIT Thesis Combined/BSCS/2012/Computer Aided Instruction for Basic Education of Santiago Elementary School in Botolan,Zambales.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["kimberly ann ortega","sarah jane tadena","amor denito"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Computer Aided Instruction Sotfware in Physical Education Three (3) for Second Year Students of RMTU",
   url:"CCIT Thesis Combined/BSCS/2012/Computer Aided Instruction Sotfware in Physical Education Three (3) for Second Year Students of RMTU.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["juvy velasco","clarence marzal","andrea salazar","jomar montefalcon"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Computer Aided Instructions in Social Studies for First Year High School Students of ZNHS",
   url:"CCIT Thesis Combined/BSCS/2012/Computer Aided Instructions in Social Studies for First Year High School Students of ZNHS.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["marife balatico","shiela mae diaz","katherine cabunoc"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Computer Based SBO Election System for RMTU",
   url:"CCIT Thesis Combined/BSCS/2012/Computer Based SBO Election System for RMTU.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["demler dalida","henry medina","gladys pampuan"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Computer-Aided Instruction Teaching in Grammar of RMTU-CCIT",
   url:"CCIT Thesis Combined/BSCS/2012/Computer-Aided Instruction Teaching in Grammar of RMTU-CCIT.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["sunshine acierto","jessery mejia","melanie barlin"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Computerized Record Management System of Public Attorney's Office (PAO)",
   url:"CCIT Thesis Combined/BSCS/2012/Computerized Record Management System of Public Attorney's Office (PAO).pdf",
-  date:"2012"
+  date:"2012",
+  author: ["aliber rusiana","jaymark antonio","rino castillo"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"E-Placement and Career Development Services of the RMTU",
   url:"CCIT Thesis Combined/BSCS/2012/E-Placement and Career Development Services of the RMTU.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["daniel bachillar","joy echipare","emmanuel pepito"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Keyboard Development Skills Software for La Paz National High School",
   url:"CCIT Thesis Combined/BSCS/2012/Keyboard Development Skills Software for La Paz National High School.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["wendie asencio","maureen ciriaco","mary antonette mariano"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"One Versus D' Others for CCIT of RMTU",
   url:"CCIT Thesis Combined/BSCS/2012/One Versus D' Others for CCIT of RMTU.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["melan gamboa","crismae devillena","john casupanan"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Proposed Computer Aided Instruction Software in Filipino for Third Year High School Student of Botolan National High School",
   url:"CCIT Thesis Combined/BSCS/2012/Proposed Computer Aided Instruction Software in Filipino for Third Year High School Student of Botolan National High School.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["rachel arigo","rachelle ann hilario","marilou munar"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Proposed Computer Aided Instruction Software in T.L.E in High School Students",
   url:"CCIT Thesis Combined/BSCS/2012/Proposed Computer Aided Instruction Software in T.L.E in High School Students.pdf",
-  date:"2012"
+  date:"2012",
+  author: ["harold readores","mary elaine hilario","rowena blanco"],
+  adviser: "menchie dela cruz"
 },
 //-----------------------------BSCS 2013
 {
   degree:"BSCS",
   filename:"Computer Based NBC 461 Faculty Evaluation System for RMTU Design and Development",
   url:"CCIT Thesis Combined/BSCS/2013/Computer Based NBC 461 Faculty Evaluation System for RMTU Design and Development.pdf",
-  date:"2013"
+  date:"2013",
+  author: ["judith baluyod","olyn devera","brennan cervantes"],
+  adviser: "carlo ayran"
 },
 {
   degree:"BSCS",
   filename:"School Management Information System for ZNHS",
   url:"CCIT Thesis Combined/BSCS/2013/School Management Information System for ZNHS.pdf",
-  date:"2013"
+  date:"2013",
+  author: ["jean calimlim","vergel ednalaguim","ralph pastor"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"The Proposed E-Guide for a Safety Driving",
   url:"CCIT Thesis Combined/BSCS/2013/The Proposed E-Guide for a Safety Driving.pdf",
-  date:"2013"
+  date:"2013",
+  author: ["ariane kaye rosare","geramie cabanlit","eric galang"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Tutorial Based on Syntactic Enhancer",
   url:"CCIT Thesis Combined/BSCS/2013/Tutorial Based on Syntactic Enhancer.pdf",
-  date:"2013"
+  date:"2013",
+  author: ["joan tacla","daryl george borja","etiquio basierto"],
+  adviser: "nemia galang"
 },
 //-----------------------------BSCS 2015
 {
   degree:"BSCS",
   filename:"Mobile Ordering System for Restaurants Iba,Zambales",
   url:"CCIT Thesis Combined/BSCS/2015/Mobile Ordering System for Restaurants Iba,Zambales.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["khrisselle sobreo","shella elamparo","lex danaytan"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Numerouno for Grade 1 Students IBA CAMPUS",
   url:"CCIT Thesis Combined/BSCS/2015/Numerouno for Grade 1 Students IBA CAMPUS.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["joyce foster","cleyanne marie eviota","rochelle ann dela cruz"],
+  adviser: "nemia galang"
 },
 {
   degree:"BSCS",
   filename:"Students Record Inquiry for RMTU IBA CAMPUS",
   url:"CCIT Thesis Combined/BSCS/2015/Students Record Inquiry for RMTU IBA CAMPUS.pdf",
-  date:"2015"
+  date:"2015",
+  author: ["karen joy eduvane","pinky menor","grace ann astraquillo"],
+  adviser: "nemia galang"
 },
 //-----------------------------BSCS 2016
 {
   degree:"BSCS",
   filename:"Computer Aided Instruction in Programming Language for CCIT of RMTU",
   url:"CCIT Thesis Combined/BSCS/2016/Computer Aided Instruction in Programming Language for CCIT of RMTU.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["brando madreo","dan rey aseron"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Computer Aided Instruction in World Literature for RMTU, Iba Campus",
   url:"CCIT Thesis Combined/BSCS/2016/Computer Aided Instruction in World Literature for RMTU, Iba Campus.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["arjay de guzman","gabriel detubio"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Computer Aided Instruction Software in Trigonometry for RMTU",
   url:"CCIT Thesis Combined/BSCS/2016/Computer Aided Instruction Software in Trigonometry for RMTU.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["jelmar rongavilla","ayra lou rico"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"PC Security LAN-Based Alarm Based",
   url:"CCIT Thesis Combined/BSCS/2016/PC Security LAN-Based Alarm Based.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["romelyn abling","sandro narci"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Word Documents to Slide Presentation Converter, Iba Campus",
   url:"CCIT Thesis Combined/BSCS/2016/Word Documents to Slide Presentation Converter, Iba Campus.pdf",
-  date:"2016"
+  date:"2016",
+  author: ["vincent chris ednave","robert john encarnacion"],
+  adviser: "menchie dela cruz"
 },
 //-----------------------------BSCS 2017
 {
   degree:"BSCS",
   filename:"Android Based File Locker Using Facial Recognition",
   url:"CCIT Thesis Combined/BSCS/2017/Android Based File Locker Using Facial Recognition.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["jorge dingle","nestor fisco"],
+  adviser: "menchie dela cruz"
 },
 {
   degree:"BSCS",
   filename:"Android Based File Locker Using Facial Recognition",
   url:"CCIT Thesis Combined/BSCS/2017/Android Based File Locker Using Facial Recognition.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["joanne abrida","angelie mae ajoste"],
+  adviser: "geoffrey sepillo"
 },
 {
   degree:"BSCS",
   filename:"Android Based File Locker Using Facial Recognition",
   url:"CCIT Thesis Combined/BSCS/2017/Android Based File Locker Using Facial Recognition.pdf",
-  date:"2017"
+  date:"2017",
+  author: ["eduardo lorenzana","benjie pizarro"],
+  adviser: "nemia galang"
 },
 //-----------------------------BSCS 2018
 {
   degree:"BSCS",
   filename:"2D Game, Escape to Sin World",
   url:"CCIT Thesis Combined/BSCS/2018/2D Game, Escape to Sin World.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["ramil ebelte","rudan pintac","rodel cuevo"],
+  adviser: "fiel dullas"
 },
 {
   degree:"BSCS",
   filename:"Amazing Game, Sling Shooter-The Legend",
   url:"CCIT Thesis Combined/BSCS/2018/Amazing Game, Sling Shooter-The Legend.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["paul john dimasacupan","catherine angeles","rhina parochilin"],
+  adviser: "joseph juliano"
 },
 {
   degree:"BSCS",
   filename:"Automated Venetian blinds with Switching System for RMTU",
   url:"CCIT Thesis Combined/BSCS/2018/Automated Venetian blinds with Switching System for RMTU.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["jay ar pajares","jonel masangkay","marjorie quilas"],
+  adviser: "israel cabasug"
 },
 {
   degree:"BSCS",
   filename:"Build The 3D",
   url:"CCIT Thesis Combined/BSCS/2018/Build The 3D.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["domalyn tasara","mary ann adalla","lanie mirador"],
+  adviser: "geoffrey sepillo"
 },
 {
   degree:"BSCS",
   filename:"Digital Number System Simulator",
   url:"CCIT Thesis Combined/BSCS/2018/Digital Number System Simulator.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["rose ann paradeza","liezl may atienza","kimberly egana"],
+  adviser: "hansel ada"
 },
 {
   degree:"BSCS",
   filename:"The Adventure of Juan, The Salamander",
   url:"CCIT Thesis Combined/BSCS/2018/The Adventure of Juan, The Salamander.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["rayjan hilario","ednalyn apino","carlo camba"],
+  adviser: "fiel dullas"
 },
 {
   degree:"BSCS",
   filename:"The Game of Mystery, Treasure Hunter",
   url:"CCIT Thesis Combined/BSCS/2018/The Game of Mystery, Treasure Hunter.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["rizza mae aquino","clarissa joyce cantillo","mary grace melu"],
+  adviser: "darwin morana"
 },
 {
   degree:"BSCS",
   filename:"The Lost Prince of Albania",
   url:"CCIT Thesis Combined/BSCS/2018/The Lost Prince of Albania.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["mica roselle ebal","jael may hermoso","rose ann tabile"],
+  adviser: "hansel ada"
 },
 {
   degree:"BSCS",
   filename:"Transceive Software for RMTU",
   url:"CCIT Thesis Combined/BSCS/2018/Transceive Software for RMTU.pdf",
-  date:"2018"
+  date:"2018",
+  author: ["vinson rey pascua","crystal dawn lauron","reymar pangilinan"],
+  adviser: "darwin morana"
 },
 //-----------------------------BSCS 2019
 {
   degree:"BSCS",
   filename:"New Born Baby Simulator",
   url:"CCIT Thesis Combined/BSCS/2019/New Born Baby Simulator.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["reyvel dulay","john lloyd mari"],
+  adviser: "joseph juliano"
 },
 {
   degree:"BSCS",
   filename:"Word War I",
   url:"CCIT Thesis Combined/BSCS/2019/Word War I.pdf",
-  date:"2019"
+  date:"2019",
+  author: ["harmony loveranes","krizel mae macaspac","gener casiano"],
+  adviser: "daniel bachillar"
 },
 //-----------------------------BSCS 2020
 {
   degree:"BSCS",
   filename:"Automated Dog Feeder",
   url:"CCIT Thesis Combined/BSCS/2020/Automated Dog Feeder.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["john frederick cabas","nicole justine narciso","jeremy atrero"],
+  adviser: "geoffrey sepillo"
 },
 {
   degree:"BSCS",
   filename:"Crime Recoerd Software of PNP Masinloc",
   url:"CCIT Thesis Combined/BSCS/2020/Crime Recoerd Software of PNP Masinloc.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["kristian paul abran","camille cleo bajar","dominic elamparo"],
+  adviser: "geoffrey sepillo"
 },
 {
   degree:"BSCS",
   filename:"Land Defenders",
   url:"CCIT Thesis Combined/BSCS/2020/Land Defenders.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["rosswald dawang","raymond dragon","vien ephriam echuare","nico allen lacuesta"],
+  adviser: "joseph juliano"
 },
 {
   degree:"BSCS",
   filename:"Land Survey GPS",
   url:"CCIT Thesis Combined/BSCS/2020/Land Survey GPS.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["kevin jay minor","shaina monsalud","junel erick nuqui"],
+  adviser: "geoffrey sepillo"
 },
 {
   degree:"BSCS",
   filename:"Seen Tense A Guide To Grammar For Grade 7 Students",
   url:"CCIT Thesis Combined/BSCS/2020/Seen Tense A Guide To Grammar For Grade 7 Students.pdf",
-  date:"2020"
+  date:"2020",
+  author: ["jayson fabrigar","liezl ann sarmiento","diana rose olipane"],
+  adviser: "hansel ada"
 },
 //-----------------------------BSCS 2021
 {
   degree:"BSCS",
   filename:"Don't Catch a Virus-2D Game",
   url:"CCIT Thesis Combined/BSCS/2021/Don't Catch a Virus-2D Game.pdf",
-  date:"2021"
+  date:"2021",
+  author: ["mark ryan achacoso","daniel manzano","nicosan laguatan","clyde ramirez"],
+  adviser: "darwin morana"
 },
 {
   degree:"BSCS",
   filename:"DSS Descriptive Statistics Solver",
   url:"CCIT Thesis Combined/BSCS/2021/DSS Descriptive Statistics Solver.pdf",
-  date:"2021"
+  date:"2021",
+  author: ["ron earl del rosario","ronnel mesia","nathasha dominique pepito"],
+  adviser: "menchie dela cruz"
 }
 ];
 
@@ -1207,91 +1399,382 @@ searchBtn.addEventListener('click',searchTitle)
 // }
 
 
-function submitForm(){
+function submitForm(){9
   let authorName = document.getElementById("searchAuthor").value.toLowerCase();
   let adviserName = document.getElementById("searchAdviser").value.toLowerCase();
-  var degreeFormValue = document.myForm.degree.value; 
+  var degreeFormValue = document.myForm.degree.value;
+
   var yearValue = document.getElementById("yearList").value;
+  let nameValue = document.getElementById("searchTitle").value;
+  let nameValueArrayInWords = nameValue.split(" ");
   var anchorElements = "";
-  let anchorPass = "";
-  console.log(yearValue);
-  
-  //check if select year list has no value
-  // if(yearValue){
-  //   yearValueNone = false;
-  // }
-  // else if(!yearValue){
-  //   yearValueNone = true;
-  // }
-
-  // if(degreeFormValue === "BSCpE" && yearValueNone === true){ // if year list has no value all research files of the chosen degree will be shown.
-  //   for(let i = 0; i < BscpeFiles.length; i++){
-  //     if(BscpeFiles[i].degree === "BSCpE"){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //   }
-  // }
-  // else if(degreeFormValue === "BSCpE" && yearValueNone === false){
-  //   for(let i = 0; i < BscpeFiles.length; i++){
-  //     if(BscpeFiles[i].degree === "BSCpE" && BscpeFiles[i].date === yearValue){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //     else if(checkFiles === true && i === BscpeFiles.length-1){
-  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-  //     }
-  //   }
-  // }
-
-  // else if(degreeFormValue === "BSCS" && yearValueNone === true){
-  //   for(let i = 0; i < BSCSFiles.length; i++){
-  //     if(BSCSFiles[i].degree === "BSCS"){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //   }
-  // }
-
-  // else if(degreeFormValue === "BSCS" && yearValueNone === false){
-  //   for(let i = 0; i < BSCSFiles.length; i++){
-  //     if(BSCSFiles[i].degree === "BSCS" && BSCSFiles[i].date === yearValue){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //     else if(checkFiles === true && i === BSCSFiles.length-1){
-  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-  //     }
-  //   }
-  // }
-  // else if(degreeFormValue === "BSINFOTECH" && yearValueNone === true){
-  //   for(let i = 0; i < BsinfotechFiles.length; i++){
-  //     if(BsinfotechFiles[i].degree === "BSINFOTECH"){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //   }
-  // }
-  // else if(degreeFormValue === "BSINFOTECH" && yearValueNone === false){
-  //   for(let i = 0; i < BsinfotechFiles.length; i++){
-  //     if(BsinfotechFiles[i].degree === "BSINFOTECH" && BsinfotechFiles[i].date === yearValue){
-  //       anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-  //       checkFiles = false;
-  //     }
-  //     else if(checkFiles === true && i === BsinfotechFiles.length-1){
-  //       anchorElements = `<p id = "noFiles"> NO FILES FOUND </p>`;
-  //     }
-  //   }
-  // }
+  console.log(degreeFormValue)
   for(let i = 0; i < BscpeFiles.length; i++){
-    if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date){
+    let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
+    let searchNameLength = 0;
+    console.log(searchNameLength);
+    for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+      if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+        searchNameLength++;
+      }
+      else if(searchNameLength !== nameValueArrayInWords.length){
+        searchNameLength = 0;
+      }
+      if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
         
+      }
+      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+        
+      }
+      // if the author search dont have value
+      else if( authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+
+      }
+      // if the adviser search dont have value
+      else if(BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === "BSCpE" && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the year search dont have value
+       else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      // // if the degree search dont have value
+      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      // if search title has no value
+      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //-------------2 search has no value
+
+      //   // if the author search and degree search dont have value
+      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the adviser search and degree search dont have value
+      else if(adviserName === "" && BscpeFiles[i].author.includes(authorName) && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+       //   // if the author search and year search dont have value
+       else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE"  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the adviser search and year search dont have value
+      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === "BSCpE"  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+       //  // if the author search and title search dont have value
+      else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "BSCpE"  && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+       //  // if the adviser search and title search dont have value
+       else if(yearValue === "" && BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === "BSCpE"  && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      // if adviser and author search has no value
+      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "BSCpE" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      // if year and degree search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      // if year and title search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "BSCpE" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if degree and title search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+       //-------------3 search has no value
+
+      //if author,adviser and year has no value
+      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === "BSCpE" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,adviser and degree search has no value
+      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,year and degree search has no value
+      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+
+      //if author,title and degree search has no value
+      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,author and degree search has no value
+      else if(adviserName === "" && authorName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,year and degree search has no value
+      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,title and degree search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,degree,and title search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,author,and title search has no value
+      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,adviser,and title search has no value
+      else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,adviser and year has no value
+      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === "BSCpE" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+        console.log(nameValueArrayInWords); 
+        console.log(degreeFormValue); 
+      }
+       //-------------4 search has no value
+
+      //if author search only has the value
+      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === "" ){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser search only has the value
+      else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year search only has the value
+      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+      //if degree search only has the value
+      else if(authorName === "" && adviserName === "" && degreeFormValue === "BSCpE" && yearValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+      }
+     //if title search only has the value
+     else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
       anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-      console.log("read")
-      
-      
+     
     }
-    console.log(i)
+    }
+  }
+
+  for(let i = 0; i < BSCSFiles.length; i++){
+    let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
+    let searchNameLength = 0;
+    for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+      if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+        searchNameLength++;
+      }
+      else if(searchNameLength !== nameValueArrayInWords.length){
+        searchNameLength = 0;
+      }
+
+      if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS" && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+        
+      }
+      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS" && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      //--------------- 1 has no value 
+      }
+      // if the author search dont have value
+      else if( authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS" && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      // if the adviser search dont have value
+      else if(BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === "BSCS" && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the year search dont have value
+       else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      // // if the degree search dont have value
+      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      // if search title has no value
+      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //--------------- 2 has no value 
+
+      //   // if the author search and degree search dont have value
+      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the adviser search and degree search dont have value
+      else if(adviserName === "" && BSCSFiles[i].author.includes(authorName) && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+       //   // if the author search and year search dont have value
+       else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS"  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //  // if the adviser search and year search dont have value
+      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === "BSCS"  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+       //  // if the author search and title search dont have value
+      else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "BSCS"  && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+       //  // if the adviser search and title search dont have value
+       else if(yearValue === "" && BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === "BSCS"  && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      // if adviser and author search has no value
+      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "BSCS" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+
+      // if year and degree search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      // if year and title search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "BSCS" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if degree and title search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+
+      //--------------- 3 has no value 
+      
+      //if author,adviser and degree search has no value
+      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,year and degree search has no value
+      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,title and degree search has no value
+      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,author and degree search has no value
+      else if(adviserName === "" && authorName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,year and degree search has no value
+      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser,title and degree search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,degree,and title search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,author,and title search has no value
+      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "BSCS" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year,adviser,and title search has no value
+      else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === "BSCS" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if author,adviser and year has no value
+      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === "BSCS" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+
+      //--------------- 4 has no value 
+      //if author search only has the value
+      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if adviser search only has the value
+      else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if year search only has the value
+      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+      //if degree search only has the value
+      else if(authorName === "" && adviserName === "" && degreeFormValue === "BSCS" && yearValue === "" && nameValue === "" ){
+        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+      }
+     //if title search only has the value
+     else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`; 
+    }
+    }
   }
   
   pdfContainer.innerHTML = anchorElements;

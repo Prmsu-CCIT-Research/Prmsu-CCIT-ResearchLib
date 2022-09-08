@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 450px;
+  width: 30%;
   height: 670px;
   
   #search_Container{
@@ -150,9 +150,9 @@
 
 #pdf_Container{
   position: absolute;
-  left: 500px;
+  left: 33%;
   top: 50px;
-  width: 72%;
+  width: 70%;
   height: 600px;
   @include scrollbar();
   -webkit-scrollbar: 20px;

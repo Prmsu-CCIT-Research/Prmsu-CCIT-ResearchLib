@@ -26,10 +26,14 @@
     </div>
     <div id = "filter_Container">
       <form name="myForm" id = "sortingForm_container">
-        <input id = "searchAuthor" name="author" type="text" placeholder="Author"/>
+        <label for="author">Author:</label>
+        <br>
+        <input id = "searchAuthor" name="author" type="text" placeholder="Firstname Lastname"/>
         <br>
         <br>
-        <input id = "searchAdviser" name="adviser" type="text" placeholder="Adviser"/>
+        <label for="adviser">Adviser:</label>
+        <br>
+        <input id = "searchAdviser" name="adviser" type="text" placeholder="Firstname Lastname"/>
         <br>
         <br>
         <label for="degree">Degree:</label>
@@ -43,6 +47,9 @@
         <br>
         <input type = "radio" name = "degree" value = "BSCpE"/>
         <label for="degree">BSCpE</label>
+        <br>
+        <input type = "radio" name = "degree" value = ""/>
+        <label for="degree">None</label>
         <br>
         <br>
         <label id = "yearList_Title"for="yearList">Select Year</label>
