@@ -338,7 +338,7 @@
 
 #searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
   position: relative;
-  width: 65%;
+  max-width: 65%;
   left: 6%;
 }
 
@@ -664,7 +664,7 @@
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container {
     font-size: 25px;
-    height: 40%;
+    height: 45%;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #label {
     font-size: 18px;
@@ -680,7 +680,7 @@
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
     position: relative;
-    width: 65%;
+    max-width: 65%;
     left: 6%;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container {

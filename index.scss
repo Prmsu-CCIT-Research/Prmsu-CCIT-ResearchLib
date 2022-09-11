@@ -127,7 +127,7 @@
     
         #searchAuthor{
           position: relative;
-          width: 65%;
+          max-width: 65%;
           left: 6%;
         }
       }
@@ -368,7 +368,7 @@
         width: 100%;
           #sortingForm_container{
           font-size: 25px;
-          height: 40%;
+          height: 45%;
           #label{
             font-size: 18px;
           }
@@ -378,14 +378,14 @@
         
             #searchAuthor{
               position: relative;
-              width: 65%;
+              max-width: 65%;
               left: 6%;
             }
           }
           #adviser_container{
             display: flex;
             flex-direction: row;
-              margin-top: 20px;
+            margin-top: 20px;
         
             #searchAdviser{
               position: relative;
@@ -423,7 +423,7 @@
   }
   #numberOfList{
     display: none;
-    // position: absolute;
+    // position: absolute;z
     // display: flex;
     // align-items: center;
     // justify-content: center;
