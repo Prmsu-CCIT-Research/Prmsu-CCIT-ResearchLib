@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href = "index.css">
-  <link rel="stylesheet" href = "debug.css">
+  <!-- <link rel="stylesheet" href = "debug.css"> -->
+  <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel ="stylesheet" href="https://icons8.com/icon/123409/advanced-search">
   <title>Research repository</title>
 </head>
 <body>
@@ -13,64 +15,53 @@
 
   </nav>
   <div id = "searchAndFilter_Container">
-    <div id = "search_Container">
-      <form id = "searchingForm_container">
-        <input id = "searchTitle" name="Filename" type="text" placeholder="Filename"/>
-        <!-- <input id = "inputDegree" type="text" placeholder="Degree"/> -->
-        <!-- <input type="button" id ="searchNameBTn" value="SEARCH"> -->
-      </form>
-      <div id = searchBtn_container>
-        <button id ="searchNameBTn"  onclick="searchTitle()">SEARCH</button>
-        <button id ="showFilterButton"  onclick="showFilter()">Filter<i id="arrow_updown" id="updown_up"></i></button>
-      </div>
+    
+    <div id = "searchTitle_container">
+      <input id = "searchTitle" name="Filename" type="text" placeholder="Filename"/>
+      <button id ="searchNameBTn"  onclick="searchTitle()"><i id = "searchIcon" class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div id = btnFilter_container>
+      <p id = "advanceSearchTitle">ADVANCE SEARCH</p>
+      <button id ="showFilterButton"  onclick="showFilter()"><img id = "advanceSearchIcon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAES0lEQVRoge2az28VVRTHP23hFSjwJOE1USghSmIoBUlMJMQFGKMGdAFEICZsjAtiI1B+7Phh3MADExL/AOIC/FHQlQtWrFRiCKKihJIiYtWQshMIFhr6WJxzmWln5s69cyd9JPJNTibvvXvPPd+5554558yDJ/h/4DDwAGhMkFFgdxPt8sZfJEkYudBEu7wwGxgjm8gIMKXsRVvLVggsBlosv7cDi8pe1IfIAqAPqOWMW+yga1nO7zVdq8tBlxcWAn8grjEMvGkZe4RstzLykWX+q8A/Om4IeC7Q9kdYRPLwjgFHETeJYw7wbQ6JBnAGmDVhbgX4mOT5KoVMGom4/Ax0AyuAr4F7DiSM3AWOI272PHDeMjaIzPwcEkbuexifJmPAfw7jhoB5WcbaDvtrSiYPUx3G2NACTHMY14XY5I0ZwABhd7tMGQRmFiEC8CLhrlOGjCLnMAgHHgMi+0JJgKQTZ5tI4nugrQwiIGG4GS52F3jWxUDXFKVGeHQqgnZgepkKv8HvTg4De4HlQAcSAZfpdzc8dR0ri0QNiRquC58kmX7EUQX6PfTdwmFX0uqCKpLB9uj15YxxaTgFbFYDsvAv8A7i1m876JwFnAbOAZeBS8jz7VbWhDqSBhQ9mMPYd2IiqsDNgPWGgENpitNqbB/Z60HC4MPANR+kKQ0NlS8UIDIPqW26kHMwDXgGWIN4yHWHdUsn4uNWrmgDtgB/TiaRDk8jK8Am4HPk8N5RGQA+098qOrYKfDlZRPLq8Dg2AL876LwKrNc5LcAnLkR8nhVFD3sr42v6X4DtSJXZobIE2AFcjI2r69wWxj+DRtMW2YM0z0YKErmBuIANhsQIsBV7itQKvB+zp67fV5GdukBO13IKcoc2AweB7zzI9FuM2xAjscpmwASsjpFZ5zEvgU783O4UyZ2pEJ2JrQVs6NW5gwQmr75J402kIDM1/yaiM1Gku9kG/Ko6XNKaTKzMMTxL1ur8L/TztgAb+lTHiQAddFMsqpmW5xX93B1gwxLVMVBUQTvwk8VYm5g2z239XLgLgmQODdWVgIu/1pECqdmwdfhz8Qb2dx15YjqDZbhWD1HkSsC2I3OBTwm7E0v1el6vhTqFitf1+oPvRBMlQuSw6jLh9yLFw+9vqmOj7+QFuDWxbSnNdTWigqQVDSTt8MUHOvcaBV/b5b1WOIu0+1cAX5H+WmGL6lpPRHy1hw2vxPS+VYSEjcwosJ/k3ZlDsis5RJSy1InI9GLvILYhO2FIDJP/2s+LzBXgJcvYoyR3pR8JGq1EZBpI2tGHPOxmqvQAO4nOhCFhxneGkpkPvEt+JfheCpEGUhSZCLgOCaN55+8a4k41olyrFDIusOVlJ4GndNxUJAE8gfSrbiOl7iDySm4j4123k0kmU80gYeRqgO5JJ/M32UR+DNRdIyqDLwNPB+qzwvanml0l6I/vTG8J+pqKToo9XB9vPATcEGJHGhimLAAAAABJRU5ErkJggg=="><i id="arrow_updown" id="updown_up"></i></button>
     </div>
     <div id = "filter_Container">
       <form name="myForm" id = "sortingForm_container">
-        <label for="author">Author:</label>
-        <br>
-        <input id = "searchAuthor" name="author" type="text" placeholder="Firstname Lastname"/>
-        <br>
-        <br>
-        <label for="adviser">Adviser:</label>
-        <br>
-        <input id = "searchAdviser" name="adviser" type="text" placeholder="Firstname Lastname"/>
-        <br>
-        <br>
-        <label for="degree">Degree:</label>
-        <br>
-        <br>
-        <input type = "radio" name = "degree" value = "BSCS"/>
-        <label for="degree">BSCS</label>
-        <br>
-        <input type = "radio" name = "degree" value = "BSINFOTECH"/>
-        <label for="degree">BSINFOTECH</label>
-        <br>
-        <input type = "radio" name = "degree" value = "BSCpE"/>
-        <label for="degree">BSCpE</label>
-        <br>
-        <input type = "radio" name = "degree" value = ""/>
-        <label for="degree">None</label>
-        <br>
-        <br>
-        <label id = "yearList_Title"for="yearList">Select Year</label>
-        <br>
-        <select id = "yearList" name ="yearList" onchange="">
-          <!-- <option disabled selected value> Select Year </option> -->
-          <option value = "">Year</option>
-          <option value = "2009">2009</option>
-          <option value = "2010">2010</option>
-          <option value = "2011">2011</option>
-          <option value = "2012">2012</option>
-          <option value = "2013">2013</option>
-          <option value = "2014">2014</option>
-          <option value = "2015">2015</option>
-          <option value = "2016">2016</option>
-          <option value = "2017">2017</option>
-          <option value = "2018">2018</option>
-          <option value = "2019">2019</option>
-          <option value = "2020">2020</option>
-        </select>
+        <div id = "author_container">
+          <label for="author" id="label">Author:</label>
+          <br>
+          <input id = "searchAuthor" name="author" type="text" placeholder="Firstname Lastname"/>
+          <br>
+        </div>
+        <div id = "adviser_container">
+          <label for="adviser" id="label">Adviser:</label>
+          <br>
+          <input id = "searchAdviser" name="adviser" type="text" placeholder="Firstname Lastname"/>
+          <br>
+        </div>
       </form>
+      <select id = "degreeList" name ="yearList" onchange="">
+        <option value = "">Degree</option>
+        <option value = "BSCS">BSCS</option>
+        <option value = "BSINFOTECH">BSINFOTECH</option>
+        <option value = "BSCpE">BSCpE</option>
+      </select>
+      <br>
+      <br>
+      <select id = "yearList" name ="yearList" onchange="">
+        <option value = "">Year</option>
+        <option value = "2009">2009</option>
+        <option value = "2010">2010</option>
+        <option value = "2011">2011</option>
+        <option value = "2012">2012</option>
+        <option value = "2013">2013</option>
+        <option value = "2014">2014</option>
+        <option value = "2015">2015</option>
+        <option value = "2016">2016</option>
+        <option value = "2017">2017</option>
+        <option value = "2018">2018</option>
+        <option value = "2019">2019</option>
+        <option value = "2020">2020</option>
+      </select>
       <button id = "submitBtn" onclick="submitForm()">Enter</button>
     </div>
   </div>
@@ -80,5 +71,6 @@
 </div>
 <p id = "numberOfList"></p>
 <script src="main.js"></script>
+<script src="https://kit.fontawesome.com/789bb7bb94.js" crossorigin="anonymous"></script>
 </body>
 </html>
