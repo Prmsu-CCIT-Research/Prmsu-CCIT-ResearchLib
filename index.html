@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href = "index.css">
   <!-- <link rel="stylesheet" href = "debug.css"> -->
   <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel ="stylesheet" href="https://icons8.com/icon/123409/advanced-search">
   <title>Research repository</title>
 </head>
 <body>
@@ -17,12 +16,12 @@
   <div id = "searchAndFilter_Container">
     
     <div id = "searchTitle_container">
-      <input id = "searchTitle" name="Filename" type="text" placeholder="Filename"/>
+      <input id = "searchTitle" name="Filename" type="text" placeholder="Title"/>
       <button id ="searchNameBTn"  onclick="searchTitle()"><i id = "searchIcon" class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
     </div>
     <div id = btnFilter_container>
-      <p id = "advanceSearchTitle">ADVANCE SEARCH</p>
-      <button id ="showFilterButton"  onclick="showFilter()"><img id = "advanceSearchIcon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAES0lEQVRoge2az28VVRTHP23hFSjwJOE1USghSmIoBUlMJMQFGKMGdAFEICZsjAtiI1B+7Phh3MADExL/AOIC/FHQlQtWrFRiCKKihJIiYtWQshMIFhr6WJxzmWln5s69cyd9JPJNTibvvXvPPd+5554558yDJ/h/4DDwAGhMkFFgdxPt8sZfJEkYudBEu7wwGxgjm8gIMKXsRVvLVggsBlosv7cDi8pe1IfIAqAPqOWMW+yga1nO7zVdq8tBlxcWAn8grjEMvGkZe4RstzLykWX+q8A/Om4IeC7Q9kdYRPLwjgFHETeJYw7wbQ6JBnAGmDVhbgX4mOT5KoVMGom4/Ax0AyuAr4F7DiSM3AWOI272PHDeMjaIzPwcEkbuexifJmPAfw7jhoB5WcbaDvtrSiYPUx3G2NACTHMY14XY5I0ZwABhd7tMGQRmFiEC8CLhrlOGjCLnMAgHHgMi+0JJgKQTZ5tI4nugrQwiIGG4GS52F3jWxUDXFKVGeHQqgnZgepkKv8HvTg4De4HlQAcSAZfpdzc8dR0ri0QNiRquC58kmX7EUQX6PfTdwmFX0uqCKpLB9uj15YxxaTgFbFYDsvAv8A7i1m876JwFnAbOAZeBS8jz7VbWhDqSBhQ9mMPYd2IiqsDNgPWGgENpitNqbB/Z60HC4MPANR+kKQ0NlS8UIDIPqW26kHMwDXgGWIN4yHWHdUsn4uNWrmgDtgB/TiaRDk8jK8Am4HPk8N5RGQA+098qOrYKfDlZRPLq8Dg2AL876LwKrNc5LcAnLkR8nhVFD3sr42v6X4DtSJXZobIE2AFcjI2r69wWxj+DRtMW2YM0z0YKErmBuIANhsQIsBV7itQKvB+zp67fV5GdukBO13IKcoc2AweB7zzI9FuM2xAjscpmwASsjpFZ5zEvgU783O4UyZ2pEJ2JrQVs6NW5gwQmr75J402kIDM1/yaiM1Gku9kG/Ko6XNKaTKzMMTxL1ur8L/TztgAb+lTHiQAddFMsqpmW5xX93B1gwxLVMVBUQTvwk8VYm5g2z239XLgLgmQODdWVgIu/1pECqdmwdfhz8Qb2dx15YjqDZbhWD1HkSsC2I3OBTwm7E0v1el6vhTqFitf1+oPvRBMlQuSw6jLh9yLFw+9vqmOj7+QFuDWxbSnNdTWigqQVDSTt8MUHOvcaBV/b5b1WOIu0+1cAX5H+WmGL6lpPRHy1hw2vxPS+VYSEjcwosJ/k3ZlDsis5RJSy1InI9GLvILYhO2FIDJP/2s+LzBXgJcvYoyR3pR8JGq1EZBpI2tGHPOxmqvQAO4nOhCFhxneGkpkPvEt+JfheCpEGUhSZCLgOCaN55+8a4k41olyrFDIusOVlJ4GndNxUJAE8gfSrbiOl7iDySm4j4123k0kmU80gYeRqgO5JJ/M32UR+DNRdIyqDLwNPB+qzwvanml0l6I/vTG8J+pqKToo9XB9vPATcEGJHGhimLAAAAABJRU5ErkJggg=="><i id="arrow_updown" id="updown_up"></i></button>
+      <button id = "clearBtn" onclick="clearPdfContainer()">CLEAR</button>
+      <button id ="showFilterButton" title = "Advance Search" onclick="showFilter()"><i id = "advanceSearchIcon" class="fa-solid fa-filter fa-xl"></i></button>
     </div>
     <div id = "filter_Container">
       <form name="myForm" id = "sortingForm_container">
@@ -39,7 +38,7 @@
           <br>
         </div>
       </form>
-      <select id = "degreeList" name ="yearList" onchange="">
+      <select id = "degreeList" name ="degreeList" onchange="">
         <option value = "">Degree</option>
         <option value = "BSCS">BSCS</option>
         <option value = "BSINFOTECH">BSINFOTECH</option>
@@ -62,7 +61,6 @@
         <option value = "2019">2019</option>
         <option value = "2020">2020</option>
       </select>
-      <button id = "submitBtn" onclick="submitForm()">Enter</button>
     </div>
   </div>
 

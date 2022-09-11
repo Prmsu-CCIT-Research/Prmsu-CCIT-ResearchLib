@@ -108,6 +108,54 @@
   }
 }
 
+@-webkit-keyframes moveDown {
+  0% {
+    top: 170px;
+  }
+  50% {
+    top: 250px;
+  }
+  100% {
+    top: 260px;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 170px;
+  }
+  50% {
+    top: 250px;
+  }
+  100% {
+    top: 260px;
+  }
+}
+
+@-webkit-keyframes moveUp {
+  0% {
+    top: 260px;
+  }
+  50% {
+    top: 250px;
+  }
+  100% {
+    top: 50px;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    top: 260px;
+  }
+  50% {
+    top: 250px;
+  }
+  100% {
+    top: 50px;
+  }
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -201,43 +249,31 @@
   height: 50px;
 }
 
-#searchAndFilter_Container #btnFilter_container #advanceSearchTitle {
+#searchAndFilter_Container #btnFilter_container #clearBtn {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
-  font-size: 0.8vw;
-  left: 85%;
-  width: 0%;
-  height: 20px;
-  -webkit-animation: toRightIn 0.3s;
-          animation: toRightIn 0.3s;
-}
-
-#searchAndFilter_Container #btnFilter_container:hover #advanceSearchTitle {
-  -webkit-animation: toLeftIn 0.3s;
-          animation: toLeftIn 0.3s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  left: 5px;
+  width: 20%;
+  font-size: 1vw;
+  border-radius: 15px;
+  cursor: pointer;
+  border: 3px solid black;
+  background-color: transparent;
 }
 
 #searchAndFilter_Container #btnFilter_container #showFilterButton {
   position: relative;
-  left: 39%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 40%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: white;
-  text-transform: uppercase;
-  font-weight: 600;
   overflow-y: hidden;
-  letter-spacing: 0.05em;
   border: none;
   height: 30px;
-  max-width: 10%;
+  width: 10%;
   cursor: pointer;
 }
 
@@ -250,10 +286,20 @@
 }
 
 #searchAndFilter_Container #btnFilter_container #showFilterButton #advanceSearchIcon {
-  width: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70%;
+  height: 100%;
 }
 
-#filter_Container {
+#searchAndFilter_Container #filter_Container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,22 +311,22 @@
   padding-top: 15px;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  top: 250px;
+  top: 200px;
   border-top: 2px solid brown;
-  height: 50%;
+  height: 40%;
   width: 18%;
 }
 
-#filter_Container #sortingForm_container {
+#searchAndFilter_Container #filter_Container #sortingForm_container {
   font-size: 25px;
-  height: 30%;
+  height: 40%;
 }
 
-#filter_Container #sortingForm_container #label {
+#searchAndFilter_Container #filter_Container #sortingForm_container #label {
   font-size: 18px;
 }
 
-#filter_Container #sortingForm_container #author_container {
+#searchAndFilter_Container #filter_Container #sortingForm_container #author_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,13 +336,13 @@
           flex-direction: row;
 }
 
-#filter_Container #sortingForm_container #author_container #searchAuthor {
+#searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
   position: relative;
   width: 65%;
   left: 6%;
 }
 
-#filter_Container #sortingForm_container #adviser_container {
+#searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -307,19 +353,20 @@
   margin-top: 20px;
 }
 
-#filter_Container #sortingForm_container #adviser_container #searchAdviser {
+#searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container #searchAdviser {
   position: relative;
-  width: 65%;
+  max-width: 65%;
   left: 5%;
 }
 
-#filter_Container #degreeList {
-  width: 30%;
+#searchAndFilter_Container #filter_Container #degreeList {
+  width: 50%;
   height: 30px;
   font-size: 15px;
+  margin-top: 20px;
 }
 
-#filter_Container #yearList {
+#searchAndFilter_Container #filter_Container #yearList {
   font-size: 15px;
   width: 30%;
   height: 30px;
@@ -340,6 +387,8 @@
   top: 50px;
   width: 77%;
   height: 600px;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   -webkit-scrollbar: 20px;
   overflow-x: hidden;
   background-color: whitesmoke;
@@ -419,138 +468,261 @@
   height: 50px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 950px) and (min-width: 700px) {
+  #filter_Container {
+    overflow-y: hidden;
+    height: 60%;
+  }
+  #filter_Container #sortingForm_container {
+    font-size: 25px;
+    height: 60%;
+  }
+  #filter_Container #sortingForm_container #label {
+    font-size: 18px;
+  }
+  #filter_Container #sortingForm_container #author_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #filter_Container #sortingForm_container #author_container #searchAuthor {
+    position: relative;
+    max-width: 65%;
+    left: 6%;
+  }
+  #filter_Container #sortingForm_container #adviser_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 20px;
+  }
+  #filter_Container #sortingForm_container #adviser_container #searchAdviser {
+    position: relative;
+    max-width: 65%;
+    left: 5%;
+  }
+  #filter_Container #degreeList {
+    width: 50%;
+    height: 30px;
+    font-size: 1vw;
+    margin-top: 10px;
+  }
+  #filter_Container #yearList {
+    font-size: 1vw;
+    width: 30%;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
   #searchAndFilter_Container {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 550px;
+    border: none;
+  }
+  #searchAndFilter_Container #searchTitle_container {
+    position: relative;
+    width: 100%;
+    top: -200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border: 2px solid black;
-    width: 100%;
-    padding-left: -20px;
-    padding-right: 100px;
-  }
-  #searchAndFilter_Container #search_Container {
-    margin: 0px;
-    left: -35px;
-    width: 100%;
-    height: 150px;
-  }
-  #searchAndFilter_Container #search_Container #searchingForm_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 0px;
-    overflow-x: hidden;
-    border: 2px solid green;
-    height: 200px;
-    width: 80%;
+    padding-left: 3%;
+    height: 50px;
+    overflow-y: hidden;
   }
-  #searchAndFilter_Container #search_Container #searchingForm_container #searchTitle {
-    margin-top: 10px;
-    width: 80%;
+  #searchAndFilter_Container #searchTitle_container #searchTitle {
+    max-width: 77%;
+    height: 25px;
+    font-size: 20px;
   }
-  #searchAndFilter_Container #search_Container #searchingForm_container #inputDegree {
-    margin-top: 5px;
-    width: 80%;
-  }
-  #searchAndFilter_Container #search_Container #searchingForm_container #searchNameBTn {
+  #searchAndFilter_Container #searchTitle_container #searchNameBTn {
     position: relative;
-    top: 10px;
+    margin-left: 3%;
+    width: 10%;
+    height: 30px;
+    background-color: black;
+    font-size: 15px;
   }
-  #searchAndFilter_Container #search_Container #sortingForm_container {
-    margin-top: 10px;
-    border: 2px solid black;
-    height: 130px;
+  #searchAndFilter_Container #searchTitle_container #searchNameBTn #searchIcon {
+    color: white;
   }
-  #searchAndFilter_Container #search_Container #sortingForm_container #yearList {
-    width: 100px;
+  #searchAndFilter_Container #searchTitle_container #searchNameBTn #searchIcon:hover {
+    color: blue;
   }
-  #searchAndFilter_Container #search_Container #submitBtn {
+  #searchAndFilter_Container #btnFilter_container {
     position: relative;
-    left: 150px;
-    top: -20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: -200px;
+    max-width: 100%;
+    height: 50px;
   }
-  #searchAndFilter_Container #showFilter_Container {
-    position: absolute;
+  #searchAndFilter_Container #btnFilter_container #clearBtn {
+    position: relative;
+    left: -100px;
+    width: 70px;
+    height: 20px;
+    font-size: 11px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 3px solid black;
+    background-color: transparent;
+  }
+  #searchAndFilter_Container #btnFilter_container #showFilterButton {
+    position: relative;
+    left: 100px;
+    margin-left: 3%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 50%;
-    height: 50px;
-    top: 220px;
-    left: 50px;
+    background: white;
     overflow-y: hidden;
-    border: 2px solid blue;
-  }
-  #searchAndFilter_Container #showFilter_Container #showFilterButton {
-    position: relative;
-    background: whitesmoke;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: 2px solid black;
-    letter-spacing: 0.05em;
-    outline: 0;
-    text-align: left;
-    min-width: 100px;
-    color: black;
+    border: none;
+    height: 30px;
+    width: 10%;
     cursor: pointer;
   }
-  #searchAndFilter_Container #filter_Container {
-    position: absolute;
+  #searchAndFilter_Container #btnFilter_container #showFilterButton:hover {
+    color: red;
+  }
+  #searchAndFilter_Container #btnFilter_container #showFilterButton:hover #advanceSearchIcon {
+    width: 25px;
+  }
+  #searchAndFilter_Container #btnFilter_container #showFilterButton #advanceSearchIcon {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    overflow-y: hidden;
-    top: 300px;
-    background-color: whitesmoke;
-    height: 200px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    max-width: 50%;
+  }
+  #searchAndFilter_Container #filter_Container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    left: 0;
+    padding-top: 15px;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    top: 135px;
+    border: none;
+    height: 35%;
+    width: 100%;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container {
+    font-size: 25px;
+    height: 40%;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container #label {
+    font-size: 18px;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container #author_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
+    position: relative;
+    width: 65%;
+    left: 6%;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-top: 20px;
+  }
+  #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container #searchAdviser {
+    position: relative;
+    max-width: 65%;
+    left: 5%;
+  }
+  #searchAndFilter_Container #filter_Container #degreeList {
     width: 50%;
+    height: 30px;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  #searchAndFilter_Container #filter_Container #yearList {
+    font-size: 15px;
+    width: 30%;
+    height: 30px;
   }
   #pdf_Container {
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: left;
-        -ms-flex-align: left;
-            align-items: left;
-    top: 400px;
-    left: 0px;
     width: 100%;
+    margin-top: 120px;
+    left: 0%;
   }
   #pdf_Container #pdfFiles {
     position: relative;
+    font-size: 15px;
     left: 10px;
+    margin-top: 10px;
+    color: transparent;
   }
-  #pdf_Container #yearList {
-    position: relative;
-    width: 200px;
-  }
-  #pdf_Container #pdfLinkFiles {
-    position: relative;
-    color: red;
-    font-weight: 600;
-  }
-  #pdf_Container #pdfLinkFiles:hover {
-    color: darkgoldenrod;
+  #numberOfList {
+    display: none;
   }
 }
 /*# sourceMappingURL=index.css.map */

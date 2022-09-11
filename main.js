@@ -1442,670 +1442,1184 @@ var filter_Container = document.getElementById("filter_Container");
 filter_Container.style.display = 'none';
 var boolShowFilter = true;
 var boolShowFilter2 = true;
-let smallMediaQuery = window.matchMedia("max-width 700px");
+var mqls = [ window.matchMedia("(max-width: 700px)"),
+window.matchMedia("(min-width: 701px)")];
 var advanceSearch = document.getElementById("btnFilter_container");
+console.log(mqls[1]);
+console.log(mqls[0]);
+pdfContainer.style.top = "50px";
 function showFilter(){
   // var advanceSearchTitle = document.getElementById("advanceSearchTitle");
-  if(filter_Container.style.display === 'none'){
+  if(mqls[0].matches && filter_Container.style.display === 'none'){
+    filter_Container.style.display = 'block';
+    pdfContainer.style.animation = "moveDown 0.1s forwards"
+  }
+  else if(mqls[0].matches && filter_Container.style.display === 'block'){
+    filter_Container.style.display = 'none';
+    pdfContainer.style.animation = "moveUp 0.1s forwards"
+  }
+  if(filter_Container.style.display === 'none' && mqls[1].matches){
     filter_Container.style.animation = "fadeIn 0.5s";
     filter_Container.style.animationFillMode = "forwards";
     filter_Container.style.display = 'block';
-    filterArrow.style.transform = "rotate(45deg)";
+    pdfContainer.style.top = "50px"
+    console.log("media")
   }
-  else if(filter_Container.style.display === 'block'){
+  else if(filter_Container.style.display === 'block' && mqls[1].matches){
     filter_Container.style.animation = "fadeOut 5s";
     filter_Container.style.display = 'none';
     filter_Container.style.animationFillMode = "forwards";
-    filterArrow.style.transform = "rotate(227deg)"
-  }
-  if(smallMediaQuery.matches && boolShowFilter){
-    filter_Container.style.display = 'block';
-    pdfContainer.style.top = '570px';
-    filterArrow.style.transform = "rotate(45deg)"
-    boolShowFilter = false;
-  }
-  else if(smallMediaQuery.matches && !boolShowFilter){
-    console.log("hopo")
-    filter_Container.style.display = 'none';
-    pdfContainer.style.top = '400px';
-    filterArrow.style.transform = "rotate(227deg)"
-    boolShowFilter = true;
+    pdfContainer.style.top = "50px"
   }
 }
 var searchBtn = document.getElementById("searchNameBTn");
 
-function searchTitle(){
-  let nameValue = document.getElementById("searchTitle").value;
-  let nameValueArrayInWords = nameValue.split(" ");
-  let anchorElements = "";
-    //searching for bscs files
-    for(let i = 0; i < BSCSFiles.length; i++){
-      let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
-      let searchNameLength = 0;
-    
-       for(let j = 0; j < nameValueArrayInWords.length; j++){
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-          searchNameLength++;
-        }
-        else if(searchNameLength !== nameValueArrayInWords.length){
-          searchNameLength = 0;
-        }
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-          anchorElements +=  `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-        }
-       
-      }
-    }
-    //searching for bscpe files
-    for(let i = 0; i < BsinfotechFiles.length; i++){
-      let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
-      let searchNameLength = 0;
-    
-       for(let j = 0; j < nameValueArrayInWords.length; j++){
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-          searchNameLength++;
-        }
-        else if(searchNameLength !== nameValueArrayInWords.length){
-          searchNameLength = 0;
-        }
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-          anchorElements +=  `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-        }
-       
-      }
-    }
-    //searching for bsinfotech files
-    for(let i = 0; i < BscpeFiles.length; i++){
-      let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
-      let searchNameLength = 0;
-    
-       for(let j = 0; j < nameValueArrayInWords.length; j++){
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-          searchNameLength++;
-        }
-        else if(searchNameLength !== nameValueArrayInWords.length){
-          searchNameLength = 0;
-        }
-        if(fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-          anchorElements +=  `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-        }
-      }
-    }
+function searchTitle(){  let authorName = document.getElementById("searchAuthor").value.toLowerCase();
+let adviserName = document.getElementById("searchAdviser").value.toLowerCase();
+var degreeFormValue = document.getElementById("degreeList").value;
+var yearValue = document.getElementById("yearList").value;
+let nameValue = document.getElementById("searchTitle").value;
+let nameValueArrayInWords = nameValue.split(" ");
+let anchorElements = "";
+console.log(nameValue)
+if(degreeFormValue === "" && authorName === "" && adviserName === "" && yearValue === "" && nameValue === ""){
   pdfContainer.innerHTML = anchorElements;
-  pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
+  return
 }
+for(let i = 0; i < BscpeFiles.length; i++){
+  let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
+  let searchNameLength = 0;
+  let collegeCourse = "BSCpE";
+  console.log(searchNameLength);
 
-function submitForm(){
-  let authorName = document.getElementById("searchAuthor").value.toLowerCase();
-  let adviserName = document.getElementById("searchAdviser").value.toLowerCase();
-  var degreeFormValue = document.getElementById("degreeList").value;
-  var yearValue = document.getElementById("yearList").value;
-  let nameValue = document.getElementById("searchTitle").value;
-  let nameValueArrayInWords = nameValue.split(" ");
-  var anchorElements = "";
-  console.log(nameValue)
-  if(degreeFormValue === "" && authorName === "" && adviserName === "" && yearValue === "" && nameValue === ""){
-    pdfContainer.innerHTML = anchorElements;
-    return
-  }
-  for(let i = 0; i < BscpeFiles.length; i++){
-    let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
-    let searchNameLength = 0;
-    let collegeCourse = "BSCpE";
-    console.log(searchNameLength);
-  
-    for(let j = 0; j < nameValueArrayInWords.length; j++){
+  for(let j = 0; j < nameValueArrayInWords.length; j++){
 
-      if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-        searchNameLength++;
-      }
-      else if(searchNameLength !== nameValueArrayInWords.length){
-        searchNameLength = 0;
-      }
-      if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-        
-      }
-      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-        
-      }
-      // if the author search dont have value
-      else if( authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+    if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+      searchNameLength++;
+    }
+    else if(searchNameLength !== nameValueArrayInWords.length){
+      searchNameLength = 0;
+    }
+    if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+      
+    }
+    else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+      
+    }
+    // if the author search dont have value
+    else if( authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
 
-      }
-      // if the adviser search dont have value
-      else if(BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the year search dont have value
-       else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      // // if the degree search dont have value
-      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      // if search title has no value
-      else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //-------------2 search has no value
-
-      //   // if the author search and degree search dont have value
-      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and degree search dont have value
-      else if(adviserName === "" && BscpeFiles[i].author.includes(authorName) && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-       //   // if the author search and year search dont have value
-       else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and year search dont have value
-      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the author search and title search dont have value
-      else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the adviser search and title search dont have value
-       else if(yearValue === "" && BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      // if adviser and author search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      // if year and degree search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      // if year and title search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree and title search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-       //-------------3 search has no value
-
-      //if author,adviser and year has no value
-      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,adviser and degree search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,year and degree search has no value
-      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-
-      //if author,title and degree search has no value
-      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,author and degree search has no value
-      else if(adviserName === "" && authorName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,year and degree search has no value
-      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,title and degree search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,degree,and title search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,author,and title search has no value
-      else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,adviser,and title search has no value
-      else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,adviser and year has no value
-      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-        console.log(nameValueArrayInWords); 
-        console.log(degreeFormValue); 
-      }
-       //-------------4 search has no value
-
-      //if author search only has the value
-      else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === "" ){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser search only has the value
-      else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year search only has the value
-      else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree search only has the value
-      else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
-       
-      }
-     //if title search only has the value
-     else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+    }
+    // if the adviser search dont have value
+    else if(BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
       anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
      
     }
+    //  // if the year search dont have value
+     else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
     }
+    // // if the degree search dont have value
+    else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    // if search title has no value
+    else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //-------------2 search has no value
+
+    //   // if the author search and degree search dont have value
+    else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and degree search dont have value
+    else if(adviserName === "" && BscpeFiles[i].author.includes(authorName) && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+     //   // if the author search and year search dont have value
+     else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and year search dont have value
+    else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the author search and title search dont have value
+    else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the adviser search and title search dont have value
+     else if(yearValue === "" && BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    // if adviser and author search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    // if year and degree search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    // if year and title search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree and title search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+     //-------------3 search has no value
+
+    //if author,adviser and year has no value
+    else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,adviser and degree search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,year and degree search has no value
+    else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+
+    //if author,title and degree search has no value
+    else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,author and degree search has no value
+    else if(adviserName === "" && authorName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,year and degree search has no value
+    else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,title and degree search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,degree,and title search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,author,and title search has no value
+    else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,adviser,and title search has no value
+    else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,adviser and year has no value
+    else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+      console.log(nameValueArrayInWords); 
+      console.log(degreeFormValue); 
+    }
+     //-------------4 search has no value
+
+    //if author search only has the value
+    else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === "" ){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser search only has the value
+    else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year search only has the value
+    else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree search only has the value
+    else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+    }
+   //if title search only has the value
+   else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+    anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+   
   }
-
-  for(let i = 0; i < BSCSFiles.length; i++){
-    let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
-    let searchNameLength = 0;
-    let collegeCourse = "BSCS";
-    for(let j = 0; j < nameValueArrayInWords.length; j++){
-
-      if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-        searchNameLength++;
-      }
-      else if(searchNameLength !== nameValueArrayInWords.length){
-        searchNameLength = 0;
-      }
-
-      if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-        
-      }
-      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      //--------------- 1 has no value 
-      }
-      // if the author search dont have value
-      else if( authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      // if the adviser search dont have value
-      else if(BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the year search dont have value
-       else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      // // if the degree search dont have value
-      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      // if search title has no value
-      else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //--------------- 2 has no value 
-
-      //   // if the author search and degree search dont have value
-      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and degree search dont have value
-      else if(adviserName === "" && BSCSFiles[i].author.includes(authorName) && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-       //   // if the author search and year search dont have value
-       else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and year search dont have value
-      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the author search and title search dont have value
-      else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the adviser search and title search dont have value
-       else if(yearValue === "" && BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      // if adviser and author search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-
-      // if year and degree search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      // if year and title search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree and title search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-
-      //--------------- 3 has no value 
-      
-      //if author,adviser and degree search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,year and degree search has no value
-      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,title and degree search has no value
-      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,author and degree search has no value
-      else if(adviserName === "" && authorName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,year and degree search has no value
-      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,title and degree search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,degree,and title search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,author,and title search has no value
-      else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,adviser,and title search has no value
-      else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,adviser and year has no value
-      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-
-      //--------------- 4 has no value 
-      //if author search only has the value
-      else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser search only has the value
-      else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year search only has the value
-      else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree search only has the value
-      else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
-       
-      }
-     //if title search only has the value
-     else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`; 
-    }
-    }
   }
-
-  for(let i = 0; i < BsinfotechFiles.length; i++){
-    let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
-    let searchNameLength = 0;
-    let collegeCourse = "BSINFOTECH";
-    for(let j = 0; j < nameValueArrayInWords.length; j++){
-
-      if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
-        searchNameLength++;
-      }
-      else if(searchNameLength !== nameValueArrayInWords.length){
-        searchNameLength = 0;
-      }
-
-      if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-        
-      }
-      else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      //--------------- 1 has no value 
-      }
-      // if the author search dont have value
-      else if( authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      // if the adviser search dont have value
-      else if(BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the year search dont have value
-       else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      // // if the degree search dont have value
-      else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      // if search title has no value
-      else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //--------------- 2 has no value 
-
-      //   // if the author search and degree search dont have value
-      else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and degree search dont have value
-      else if(adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-       //   // if the author search and year search dont have value
-       else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //  // if the adviser search and year search dont have value
-      else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the author search and title search dont have value
-      else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-       //  // if the adviser search and title search dont have value
-       else if(yearValue === "" && BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      // if adviser and author search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-
-      // if year and degree search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      // if year and title search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree and title search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-
-      //--------------- 3 has no value 
-      
-      //if author,adviser and degree search has no value
-      else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,year and degree search has no value
-      else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,title and degree search has no value
-      else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,author and degree search has no value
-      else if(adviserName === "" && authorName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,year and degree search has no value
-      else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser,title and degree search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,degree,and title search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,author,and title search has no value
-      else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year,adviser,and title search has no value
-      else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if author,adviser and year has no value
-      else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-
-      //--------------- 4 has no value 
-      //if author search only has the value
-      else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if adviser search only has the value
-      else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if year search only has the value
-      else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-      //if degree search only has the value
-      else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
-        anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
-       
-      }
-     //if title search only has the value
-     else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
-      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`; 
-    }
-    }
-  }
-  
-
-  pdfContainer.innerHTML = anchorElements;
-  pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
 }
 
+for(let i = 0; i < BSCSFiles.length; i++){
+  let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
+  let searchNameLength = 0;
+  let collegeCourse = "BSCS";
+  for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+    if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+      searchNameLength++;
+    }
+    else if(searchNameLength !== nameValueArrayInWords.length){
+      searchNameLength = 0;
+    }
+
+    if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+      
+    }
+    else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    //--------------- 1 has no value 
+    }
+    // if the author search dont have value
+    else if( authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    // if the adviser search dont have value
+    else if(BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the year search dont have value
+     else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    // // if the degree search dont have value
+    else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    // if search title has no value
+    else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //--------------- 2 has no value 
+
+    //   // if the author search and degree search dont have value
+    else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and degree search dont have value
+    else if(adviserName === "" && BSCSFiles[i].author.includes(authorName) && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+     //   // if the author search and year search dont have value
+     else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and year search dont have value
+    else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the author search and title search dont have value
+    else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the adviser search and title search dont have value
+     else if(yearValue === "" && BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    // if adviser and author search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+
+    // if year and degree search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    // if year and title search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree and title search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+
+    //--------------- 3 has no value 
+    
+    //if author,adviser and degree search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,year and degree search has no value
+    else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,title and degree search has no value
+    else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,author and degree search has no value
+    else if(adviserName === "" && authorName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,year and degree search has no value
+    else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,title and degree search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,degree,and title search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,author,and title search has no value
+    else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,adviser,and title search has no value
+    else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,adviser and year has no value
+    else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+
+    //--------------- 4 has no value 
+    //if author search only has the value
+    else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser search only has the value
+    else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year search only has the value
+    else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree search only has the value
+    else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+     
+    }
+   //if title search only has the value
+   else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+    anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`; 
+  }
+  }
+}
+
+for(let i = 0; i < BsinfotechFiles.length; i++){
+  let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
+  let searchNameLength = 0;
+  let collegeCourse = "BSINFOTECH";
+  for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+    if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+      searchNameLength++;
+    }
+    else if(searchNameLength !== nameValueArrayInWords.length){
+      searchNameLength = 0;
+    }
+
+    if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+      
+    }
+    else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    //--------------- 1 has no value 
+    }
+    // if the author search dont have value
+    else if( authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    // if the adviser search dont have value
+    else if(BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the year search dont have value
+     else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    // // if the degree search dont have value
+    else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    // if search title has no value
+    else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //--------------- 2 has no value 
+
+    //   // if the author search and degree search dont have value
+    else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and degree search dont have value
+    else if(adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+     //   // if the author search and year search dont have value
+     else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //  // if the adviser search and year search dont have value
+    else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the author search and title search dont have value
+    else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+     //  // if the adviser search and title search dont have value
+     else if(yearValue === "" && BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    // if adviser and author search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+
+    // if year and degree search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    // if year and title search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree and title search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+
+    //--------------- 3 has no value 
+    
+    //if author,adviser and degree search has no value
+    else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,year and degree search has no value
+    else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,title and degree search has no value
+    else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,author and degree search has no value
+    else if(adviserName === "" && authorName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,year and degree search has no value
+    else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser,title and degree search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,degree,and title search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,author,and title search has no value
+    else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year,adviser,and title search has no value
+    else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if author,adviser and year has no value
+    else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+
+    //--------------- 4 has no value 
+    //if author search only has the value
+    else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if adviser search only has the value
+    else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if year search only has the value
+    else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+    //if degree search only has the value
+    else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
+      anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+     
+    }
+   //if title search only has the value
+   else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+    anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`; 
+  }
+  }
+}
+
+
+pdfContainer.innerHTML = anchorElements;
+pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
+}
+
+// function submitForm(){
+//   let authorName = document.getElementById("searchAuthor").value.toLowerCase();
+//   let adviserName = document.getElementById("searchAdviser").value.toLowerCase();
+//   var degreeFormValue = document.getElementById("degreeList").value;
+//   var yearValue = document.getElementById("yearList").value;
+//   let nameValue = document.getElementById("searchTitle").value;
+//   let nameValueArrayInWords = nameValue.split(" ");
+//   var anchorElements = "";
+//   console.log(nameValue)
+//   if(degreeFormValue === "" && authorName === "" && adviserName === "" && yearValue === "" && nameValue === ""){
+//     pdfContainer.innerHTML = anchorElements;
+//     return
+//   }
+//   for(let i = 0; i < BscpeFiles.length; i++){
+//     let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
+//     let searchNameLength = 0;
+//     let collegeCourse = "BSCpE";
+//     console.log(searchNameLength);
+  
+//     for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+//       if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+//         searchNameLength++;
+//       }
+//       else if(searchNameLength !== nameValueArrayInWords.length){
+//         searchNameLength = 0;
+//       }
+//       if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+        
+//       }
+//       else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+        
+//       }
+//       // if the author search dont have value
+//       else if( authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+
+//       }
+//       // if the adviser search dont have value
+//       else if(BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BscpeFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the year search dont have value
+//        else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // // if the degree search dont have value
+//       else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if search title has no value
+//       else if(BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //-------------2 search has no value
+
+//       //   // if the author search and degree search dont have value
+//       else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and degree search dont have value
+//       else if(adviserName === "" && BscpeFiles[i].author.includes(authorName) && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //   // if the author search and year search dont have value
+//        else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and year search dont have value
+//       else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the author search and title search dont have value
+//       else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the adviser search and title search dont have value
+//        else if(yearValue === "" && BscpeFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if adviser and author search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if year and degree search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if year and title search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree and title search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //-------------3 search has no value
+
+//       //if author,adviser and year has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,adviser and degree search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,year and degree search has no value
+//       else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       //if author,title and degree search has no value
+//       else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,author and degree search has no value
+//       else if(adviserName === "" && authorName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,year and degree search has no value
+//       else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,title and degree search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,degree,and title search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,author,and title search has no value
+//       else if(authorName === "" && BscpeFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,adviser,and title search has no value
+//       else if( BscpeFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,adviser and year has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+//         console.log(nameValueArrayInWords); 
+//         console.log(degreeFormValue); 
+//       }
+//        //-------------4 search has no value
+
+//       //if author search only has the value
+//       else if(yearValue === "" && adviserName === "" && BscpeFiles[i].author.includes(authorName) && degreeFormValue === "" ){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser search only has the value
+//       else if(yearValue === "" && authorName === "" && BscpeFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year search only has the value
+//       else if(authorName === "" && adviserName === "" && yearValue === BscpeFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree search only has the value
+//       else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+       
+//       }
+//      //if title search only has the value
+//      else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//       anchorElements += `<li id = "pdfFiles"> <a href = "${BscpeFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BscpeFiles[i].filename}</a> </li>`;
+     
+//     }
+//     }
+//   }
+
+//   for(let i = 0; i < BSCSFiles.length; i++){
+//     let fileNameInArrayWords = BSCSFiles[i].filename.toLowerCase();
+//     let searchNameLength = 0;
+//     let collegeCourse = "BSCS";
+//     for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+//       if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+//         searchNameLength++;
+//       }
+//       else if(searchNameLength !== nameValueArrayInWords.length){
+//         searchNameLength = 0;
+//       }
+
+//       if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+        
+//       }
+//       else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       //--------------- 1 has no value 
+//       }
+//       // if the author search dont have value
+//       else if( authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if the adviser search dont have value
+//       else if(BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BSCSFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the year search dont have value
+//        else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // // if the degree search dont have value
+//       else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if search title has no value
+//       else if(BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //--------------- 2 has no value 
+
+//       //   // if the author search and degree search dont have value
+//       else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and degree search dont have value
+//       else if(adviserName === "" && BSCSFiles[i].author.includes(authorName) && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //   // if the author search and year search dont have value
+//        else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and year search dont have value
+//       else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the author search and title search dont have value
+//       else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the adviser search and title search dont have value
+//        else if(yearValue === "" && BSCSFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if adviser and author search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       // if year and degree search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if year and title search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree and title search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       //--------------- 3 has no value 
+      
+//       //if author,adviser and degree search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,year and degree search has no value
+//       else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,title and degree search has no value
+//       else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,author and degree search has no value
+//       else if(adviserName === "" && authorName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,year and degree search has no value
+//       else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,title and degree search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,degree,and title search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,author,and title search has no value
+//       else if(authorName === "" && BSCSFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,adviser,and title search has no value
+//       else if( BSCSFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,adviser and year has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       //--------------- 4 has no value 
+//       //if author search only has the value
+//       else if(yearValue === "" && adviserName === "" && BSCSFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser search only has the value
+//       else if(yearValue === "" && authorName === "" && BSCSFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year search only has the value
+//       else if(authorName === "" && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree search only has the value
+//       else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`;
+       
+//       }
+//      //if title search only has the value
+//      else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//       anchorElements += `<li id = "pdfFiles"> <a href = "${BSCSFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BSCSFiles[i].filename}</a> </li>`; 
+//     }
+//     }
+//   }
+
+//   for(let i = 0; i < BsinfotechFiles.length; i++){
+//     let fileNameInArrayWords = BsinfotechFiles[i].filename.toLowerCase();
+//     let searchNameLength = 0;
+//     let collegeCourse = "BSINFOTECH";
+//     for(let j = 0; j < nameValueArrayInWords.length; j++){
+
+//       if(fileNameInArrayWords.includes(nameValueArrayInWords[j])){
+//         searchNameLength++;
+//       }
+//       else if(searchNameLength !== nameValueArrayInWords.length){
+//         searchNameLength = 0;
+//       }
+
+//       if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+        
+//       }
+//       else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       //--------------- 1 has no value 
+//       }
+//       // if the author search dont have value
+//       else if( authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if the adviser search dont have value
+//       else if(BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse && yearValue === BsinfotechFiles[i].date && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the year search dont have value
+//        else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // // if the degree search dont have value
+//       else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if search title has no value
+//       else if(BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //--------------- 2 has no value 
+
+//       //   // if the author search and degree search dont have value
+//       else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and degree search dont have value
+//       else if(adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //   // if the author search and year search dont have value
+//        else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //  // if the adviser search and year search dont have value
+//       else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === collegeCourse  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the author search and title search dont have value
+//       else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//        //  // if the adviser search and title search dont have value
+//        else if(yearValue === "" && BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && degreeFormValue === collegeCourse  && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if adviser and author search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       // if year and degree search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       // if year and title search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree and title search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       //--------------- 3 has no value 
+      
+//       //if author,adviser and degree search has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,year and degree search has no value
+//       else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,title and degree search has no value
+//       else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,author and degree search has no value
+//       else if(adviserName === "" && authorName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,year and degree search has no value
+//       else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === ""  && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser,title and degree search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === BSCSFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,degree,and title search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,author,and title search has no value
+//       else if(authorName === "" && BsinfotechFiles[i].adviser === adviserName && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year,adviser,and title search has no value
+//       else if( BsinfotechFiles[i].author.includes(authorName) && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if author,adviser and year has no value
+//       else if(authorName === "" && adviserName === "" && yearValue === "" && degreeFormValue === collegeCourse && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+
+//       //--------------- 4 has no value 
+//       //if author search only has the value
+//       else if(yearValue === "" && adviserName === "" && BsinfotechFiles[i].author.includes(authorName) && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if adviser search only has the value
+//       else if(yearValue === "" && authorName === "" && BsinfotechFiles[i].adviser === adviserName && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if year search only has the value
+//       else if(authorName === "" && adviserName === "" && yearValue === BsinfotechFiles[i].date && degreeFormValue === "" && nameValue === ""){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//       //if degree search only has the value
+//       else if(authorName === "" && adviserName === "" && degreeFormValue === collegeCourse && yearValue === "" && nameValue === "" ){
+//         anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`;
+       
+//       }
+//      //if title search only has the value
+//      else if(authorName === "" && adviserName === "" && degreeFormValue === "" && yearValue === "" && fileNameInArrayWords.includes(nameValueArrayInWords[j]) && searchNameLength === nameValueArrayInWords.length){
+//       anchorElements += `<li id = "pdfFiles"> <a href = "${BsinfotechFiles[i].url}" id = "pdfLinkFiles" target = "_blank"> ${BsinfotechFiles[i].filename}</a> </li>`; 
+//     }
+//     }
+//   }
+  
+
+//   pdfContainer.innerHTML = anchorElements;
+//   pdfContainer.childElementCount < 2 ? numberOfList.innerHTML = `${pdfContainer.childElementCount} Item`:numberOfList.innerHTML = `${pdfContainer.childElementCount} Items`;
+// }
+function clearPdfContainer(){
+  pdfContainer.innerHTML = "";
+  numberOfList.innerHTML = "0 Item";
+  document.getElementById("searchTitle").value = "";
+
+}
 document.addEventListener('keydown',logkey)
 function logkey(e){
   const key = e.code;

@@ -35,3 +35,21 @@
 //     opacity: 0;
 //   }
 // }
+// @keyframes moveDown {
+//   from{
+//     top: 170px;
+//   }
+//   to{
+//     top: 380px;
+//   }
+// }
+@keyframes moveDown {
+  0% {top: 170px;}
+  50% {top: 250px;}
+  100% {top: 260px;}
+}
+@keyframes moveUp {
+  0% {top: 260px;}
+  50% {top: 250px;}
+  100% {top: 50px;}
+}
