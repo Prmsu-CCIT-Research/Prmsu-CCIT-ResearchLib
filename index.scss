@@ -340,7 +340,7 @@
           width: 10%;
           cursor: pointer;
           &:hover{
-            color: red;
+            color: blue;
           }
           &:hover #advanceSearchIcon{
             width: 25px;
@@ -416,7 +416,7 @@
           background-color: transparent;
     
           &:hover{
-            border: 3px solid red;
+            border: 3px solid blue;
             transform: scale(0.90);
           }
         }

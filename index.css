@@ -627,7 +627,7 @@
     cursor: pointer;
   }
   #searchAndFilter_Container #btnFilter_container #showFilterButton:hover {
-    color: red;
+    color: blue;
   }
   #searchAndFilter_Container #btnFilter_container #showFilterButton:hover #advanceSearchIcon {
     width: 25px;
@@ -721,7 +721,7 @@
     background-color: transparent;
   }
   #searchAndFilter_Container #filter_Container #clearBtn:hover {
-    border: 3px solid red;
+    border: 3px solid blue;
     -webkit-transform: scale(0.9);
             transform: scale(0.9);
   }
