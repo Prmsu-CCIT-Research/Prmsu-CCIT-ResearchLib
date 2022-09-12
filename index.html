@@ -16,11 +16,10 @@
   <div id = "searchAndFilter_Container">
     
     <div id = "searchTitle_container">
-      <input id = "searchTitle" name="Filename" type="text" placeholder="Title"/>
+      <input id = "searchTitle" name="Filename" type="text" placeholder="Research Title"/>
       <button id ="searchNameBTn"  onclick="searchTitle()"><i id = "searchIcon" class="fa-sharp fa-solid fa-magnifying-glass"></i></button>
     </div>
     <div id = btnFilter_container>
-      <button id = "clearBtn" onclick="clearPdfContainer()">CLEAR</button>
       <button id ="showFilterButton" title = "Advance Search" onclick="showFilter()"><i id = "advanceSearchIcon" class="fa-solid fa-filter fa-xl"></i></button>
     </div>
     <div id = "filter_Container">
@@ -34,7 +33,7 @@
         <div id = "adviser_container">
           <label for="adviser" id="label">Adviser:</label>
           <br>
-          <input id = "searchAdviser" name="adviser" type="text" placeholder="Firstname Lastname"/>
+          <input id = "searchAdviser" name="adviser" type="text" placeholder="Fname or Lname"/>
           <br>
         </div>
       </form>
@@ -61,6 +60,7 @@
         <option value = "2019">2019</option>
         <option value = "2020">2020</option>
       </select>
+      <button id = "clearBtn" onclick="clearPdfContainer()">CLEAR</button>
     </div>
   </div>
 

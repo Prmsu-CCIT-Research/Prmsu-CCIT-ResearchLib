@@ -249,23 +249,12 @@
   height: 50px;
 }
 
-#searchAndFilter_Container #btnFilter_container #clearBtn {
-  position: absolute;
-  left: 5px;
-  width: 20%;
-  font-size: 1vw;
-  border-radius: 15px;
-  cursor: pointer;
-  border: 3px solid black;
-  background-color: transparent;
-}
-
 #searchAndFilter_Container #btnFilter_container #showFilterButton {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  left: 40%;
+  left: 39%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -278,7 +267,7 @@
 }
 
 #searchAndFilter_Container #btnFilter_container #showFilterButton:hover {
-  color: red;
+  color: blue;
 }
 
 #searchAndFilter_Container #btnFilter_container #showFilterButton:hover #advanceSearchIcon {
@@ -319,7 +308,7 @@
 
 #searchAndFilter_Container #filter_Container #sortingForm_container {
   font-size: 25px;
-  height: 40%;
+  height: 30%;
 }
 
 #searchAndFilter_Container #filter_Container #sortingForm_container #label {
@@ -364,12 +353,33 @@
   height: 30px;
   font-size: 15px;
   margin-top: 20px;
+  margin-left: 10px;
 }
 
 #searchAndFilter_Container #filter_Container #yearList {
+  margin-left: 10px;
   font-size: 15px;
   width: 30%;
   height: 30px;
+}
+
+#searchAndFilter_Container #filter_Container #clearBtn {
+  position: relative;
+  top: 50px;
+  left: -90px;
+  height: 30px;
+  width: 30%;
+  font-size: 1vw;
+  border-radius: 15px;
+  cursor: pointer;
+  border: 3px solid black;
+  background-color: transparent;
+}
+
+#searchAndFilter_Container #filter_Container #clearBtn:hover {
+  border: 3px solid blue;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 #submitBtn {
@@ -599,20 +609,9 @@
     max-width: 100%;
     height: 50px;
   }
-  #searchAndFilter_Container #btnFilter_container #clearBtn {
-    position: relative;
-    left: -100px;
-    width: 70px;
-    height: 20px;
-    font-size: 11px;
-    border-radius: 15px;
-    cursor: pointer;
-    border: 3px solid black;
-    background-color: transparent;
-  }
   #searchAndFilter_Container #btnFilter_container #showFilterButton {
     position: relative;
-    left: 100px;
+    left: 134px;
     margin-left: 3%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -708,6 +707,23 @@
     font-size: 15px;
     width: 30%;
     height: 30px;
+  }
+  #searchAndFilter_Container #filter_Container #clearBtn {
+    position: relative;
+    top: -5px;
+    left: 90px;
+    height: 30px;
+    width: 30%;
+    font-size: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 3px solid black;
+    background-color: transparent;
+  }
+  #searchAndFilter_Container #filter_Container #clearBtn:hover {
+    border: 3px solid red;
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   #pdf_Container {
     width: 100%;
