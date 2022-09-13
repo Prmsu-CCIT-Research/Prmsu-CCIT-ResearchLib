@@ -6,7 +6,6 @@
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -15,7 +14,6 @@
     opacity: 1;
   }
 }
-
 @-webkit-keyframes toLeftIn {
   0% {
     left: 85%;
@@ -38,7 +36,6 @@
     width: 45%;
   }
 }
-
 @keyframes toLeftIn {
   0% {
     left: 85%;
@@ -61,7 +58,6 @@
     width: 45%;
   }
 }
-
 @-webkit-keyframes toRightIn {
   0% {
     left: 42%;
@@ -84,7 +80,6 @@
     width: 0px;
   }
 }
-
 @keyframes toRightIn {
   0% {
     left: 42%;
@@ -107,7 +102,6 @@
     width: 0px;
   }
 }
-
 @-webkit-keyframes moveDown {
   0% {
     top: 170px;
@@ -119,7 +113,6 @@
     top: 260px;
   }
 }
-
 @keyframes moveDown {
   0% {
     top: 170px;
@@ -131,7 +124,6 @@
     top: 260px;
   }
 }
-
 @-webkit-keyframes moveUp {
   0% {
     top: 260px;
@@ -143,7 +135,6 @@
     top: 50px;
   }
 }
-
 @keyframes moveUp {
   0% {
     top: 260px;
@@ -154,5 +145,4 @@
   100% {
     top: 50px;
   }
-}
-/*# sourceMappingURL=animation.css.map */
+}/*# sourceMappingURL=animation.css.map */
