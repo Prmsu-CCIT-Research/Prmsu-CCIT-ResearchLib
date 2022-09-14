@@ -1442,7 +1442,6 @@ filter_Container.style.display = 'none';
 var mqls = [ window.matchMedia("(max-width: 700px)"),
 window.matchMedia("(min-width: 701px)")];
 var advanceSearch = document.getElementById("btnFilter_container");
-pdfContainer.style.top = "50px";
 function showFilter(){
   // var advanceSearchTitle = document.getElementById("advanceSearchTitle");
   if(mqls[0].matches && filter_Container.style.display === 'none'){
@@ -1478,7 +1477,6 @@ let nameValue = document.getElementById("searchTitle").value.toLowerCase();
 let nameValueArrayInWords = nameValue.split(" ");
 let anchorElements = "";
 var authorNameValue;
-console.log(nameValue);
 
 if(degreeFormValue === "" && authorName === "" && adviserName === "" && yearValue === "" && nameValue === ""){
   pdfContainer.innerHTML = anchorElements;
@@ -1488,7 +1486,6 @@ for(let i = 0; i < BscpeFiles.length; i++){
   let fileNameInArrayWords = BscpeFiles[i].filename.toLowerCase();
   let searchNameLength = 0;
   let collegeCourse = "BSCpE";
-  console.log(searchNameLength);
 
   for(let j = 0; j < nameValueArrayInWords.length; j++){
 
