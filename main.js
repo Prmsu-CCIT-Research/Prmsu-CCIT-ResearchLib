@@ -1437,17 +1437,11 @@ var BsinfotechFiles =[{
 
 var pdfContainer = document.getElementById("pdf_Container");
 var numberOfList = document.getElementById("numberOfList");
-var filterArrow = document.getElementById("arrow_updown");
 var filter_Container = document.getElementById("filter_Container");
 filter_Container.style.display = 'none';
-var boolShowFilter = true;
-var boolShowFilter2 = true;
 var mqls = [ window.matchMedia("(max-width: 700px)"),
 window.matchMedia("(min-width: 701px)")];
 var advanceSearch = document.getElementById("btnFilter_container");
-console.log(mqls[1]);
-console.log(mqls[0]);
-pdfContainer.style.top = "50px";
 function showFilter(){
   // var advanceSearchTitle = document.getElementById("advanceSearchTitle");
   if(mqls[0].matches && filter_Container.style.display === 'none'){
