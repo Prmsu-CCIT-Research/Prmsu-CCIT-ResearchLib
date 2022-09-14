@@ -1,1 +1,9 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"scrollbarStyles.css"}
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "scrollbarStyles.scss"
+    ],
+    "names": [],
+    "file": "scrollbarStyles.css"
+}

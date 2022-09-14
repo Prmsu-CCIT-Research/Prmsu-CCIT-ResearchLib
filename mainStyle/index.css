@@ -188,7 +188,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 20%;
-  height: 600px;
+  height: 610px;
 }
 
 #searchAndFilter_Container #searchTitle_container {
@@ -382,6 +382,25 @@
           transform: scale(0.9);
 }
 
+#searchAndFilter_Container #numberOfList {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 60px;
+  bottom: 30px;
+  font-size: 30px;
+  width: 11%;
+  color: black;
+  height: 50px;
+}
+
 #submitBtn {
   position: relative;
   font-size: 20px;
@@ -396,7 +415,7 @@
   z-index: 1;
   top: 50px;
   width: 77%;
-  height: 550px;
+  height: 570px;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
   -webkit-scrollbar: 20px;
@@ -457,25 +476,6 @@
   margin-left: 20px;
   margin-top: 20px;
   font-size: 30px;
-}
-
-#numberOfList {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  right: 30px;
-  bottom: 10px;
-  font-size: 30px;
-  width: 11%;
-  color: black;
-  height: 50px;
 }
 
 @media only screen and (max-width: 950px) and (min-width: 700px) {
@@ -726,7 +726,6 @@
             transform: scale(0.9);
   }
   #pdf_Container {
-    display: none;
     width: 100%;
     margin-top: 120px;
     left: 0%;

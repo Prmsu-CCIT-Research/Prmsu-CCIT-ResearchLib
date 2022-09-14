@@ -1442,6 +1442,7 @@ filter_Container.style.display = 'none';
 var mqls = [ window.matchMedia("(max-width: 700px)"),
 window.matchMedia("(min-width: 701px)")];
 var advanceSearch = document.getElementById("btnFilter_container");
+pdfContainer.style.top = "50px";
 function showFilter(){
   // var advanceSearchTitle = document.getElementById("advanceSearchTitle");
   if(mqls[0].matches && filter_Container.style.display === 'none'){
