@@ -6,6 +6,7 @@
     opacity: 1;
   }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -14,6 +15,7 @@
     opacity: 1;
   }
 }
+
 @-webkit-keyframes toLeftIn {
   0% {
     left: 85%;
@@ -36,6 +38,7 @@
     width: 45%;
   }
 }
+
 @keyframes toLeftIn {
   0% {
     left: 85%;
@@ -58,6 +61,7 @@
     width: 45%;
   }
 }
+
 @-webkit-keyframes toRightIn {
   0% {
     left: 42%;
@@ -80,6 +84,7 @@
     width: 0px;
   }
 }
+
 @keyframes toRightIn {
   0% {
     left: 42%;
@@ -102,6 +107,7 @@
     width: 0px;
   }
 }
+
 @-webkit-keyframes moveDown {
   0% {
     top: 170px;
@@ -113,6 +119,7 @@
     top: 260px;
   }
 }
+
 @keyframes moveDown {
   0% {
     top: 170px;
@@ -124,6 +131,7 @@
     top: 260px;
   }
 }
+
 @-webkit-keyframes moveUp {
   0% {
     top: 260px;
@@ -135,6 +143,7 @@
     top: 50px;
   }
 }
+
 @keyframes moveUp {
   0% {
     top: 260px;
@@ -146,6 +155,7 @@
     top: 50px;
   }
 }
+
 * {
   margin: 0px;
   padding: 0px;
@@ -154,6 +164,8 @@
 
 #navbar_container {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 20px;
@@ -165,28 +177,45 @@
   margin-top: 30px;
   z-index: 0;
   border-right: 5px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 20%;
   height: 600px;
 }
+
 #searchAndFilter_Container #searchTitle_container {
   position: relative;
   width: 100%;
   top: -250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 3%;
   height: 50px;
   overflow-y: hidden;
 }
+
 #searchAndFilter_Container #searchTitle_container #searchTitle {
   max-width: 77%;
   height: 25px;
   font-size: 20px;
 }
+
 #searchAndFilter_Container #searchTitle_container #searchNameBTn {
   position: relative;
   margin-left: 3%;
@@ -195,26 +224,40 @@
   background-color: black;
   font-size: 15px;
 }
+
 #searchAndFilter_Container #searchTitle_container #searchNameBTn #searchIcon {
   color: white;
 }
+
 #searchAndFilter_Container #searchTitle_container #searchNameBTn #searchIcon:hover {
   color: blue;
 }
+
 #searchAndFilter_Container #btnFilter_container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   top: -260px;
   width: 100%;
   height: 50px;
 }
+
 #searchAndFilter_Container #btnFilter_container #showFilterButton {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   left: 39%;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: white;
   overflow-y: hidden;
   border: none;
@@ -222,22 +265,36 @@
   width: 10%;
   cursor: pointer;
 }
+
 #searchAndFilter_Container #btnFilter_container #showFilterButton:hover {
   color: blue;
 }
+
 #searchAndFilter_Container #btnFilter_container #showFilterButton:hover #advanceSearchIcon {
   width: 25px;
 }
+
 #searchAndFilter_Container #btnFilter_container #showFilterButton #advanceSearchIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 70%;
   height: 100%;
 }
+
 #searchAndFilter_Container #filter_Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   left: 1%;
   padding-top: 15px;
@@ -248,32 +305,49 @@
   height: 40%;
   width: 18%;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container {
   font-size: 25px;
   height: 30%;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container #label {
   font-size: 18px;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container #author_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
   position: relative;
   max-width: 65%;
   left: 6%;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin-top: 20px;
 }
+
 #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container #searchAdviser {
   position: relative;
   max-width: 65%;
   left: 5%;
 }
+
 #searchAndFilter_Container #filter_Container #degreeList {
   width: 50%;
   height: 30px;
@@ -281,12 +355,14 @@
   margin-top: 20px;
   margin-left: 10px;
 }
+
 #searchAndFilter_Container #filter_Container #yearList {
   margin-left: 10px;
   font-size: 15px;
   width: 30%;
   height: 30px;
 }
+
 #searchAndFilter_Container #filter_Container #clearBtn {
   position: relative;
   top: 50px;
@@ -299,9 +375,11 @@
   border: 3px solid black;
   background-color: transparent;
 }
+
 #searchAndFilter_Container #filter_Container #clearBtn:hover {
   border: 3px solid blue;
-  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 #submitBtn {
@@ -325,26 +403,32 @@
   overflow-x: hidden;
   background-color: whitesmoke;
 }
+
 #pdf_Container::-webkit-scrollbar {
   width: 14px;
   height: 18px;
 }
+
 #pdf_Container::-webkit-scrollbar-thumb {
   height: 6px;
   border: 4px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   border-radius: 7px;
   background-color: blue;
-  box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
 }
+
 #pdf_Container::-webkit-scrollbar-button {
   width: 0;
   height: 0;
   display: none;
 }
+
 #pdf_Container::-webkit-scrollbar-corner {
   background-color: transparent;
 }
+
 #pdf_Container #pdfFiles {
   position: relative;
   font-size: 20px;
@@ -352,19 +436,23 @@
   margin-top: 10px;
   color: transparent;
 }
+
 #pdf_Container #yearList {
   position: relative;
   width: 200px;
   color: red;
 }
+
 #pdf_Container #pdfLinkFiles {
   position: relative;
   color: black;
   font-weight: 600;
 }
+
 #pdf_Container #pdfLinkFiles:hover {
   color: darkgoldenrod;
 }
+
 #pdf_Container #noFiles {
   margin-left: 20px;
   margin-top: 20px;
@@ -373,9 +461,15 @@
 
 #numberOfList {
   position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   right: 30px;
   bottom: 10px;
   font-size: 30px;
@@ -397,9 +491,16 @@
     font-size: 18px;
   }
   #filter_Container #sortingForm_container #author_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   #filter_Container #sortingForm_container #author_container #searchAuthor {
     position: relative;
@@ -407,9 +508,16 @@
     left: 6%;
   }
   #filter_Container #sortingForm_container #adviser_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-top: 20px;
   }
   #filter_Container #sortingForm_container #adviser_container #searchAdviser {
@@ -429,12 +537,19 @@
     height: 30px;
   }
 }
+
 @media only screen and (max-width: 700px) {
   #searchAndFilter_Container {
     position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     width: 100%;
     height: 550px;
     border: none;
@@ -443,10 +558,19 @@
     position: relative;
     width: 100%;
     top: -200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-left: 3%;
     height: 50px;
     overflow-y: hidden;
@@ -472,9 +596,15 @@
   }
   #searchAndFilter_Container #btnFilter_container {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     top: -200px;
     max-width: 100%;
     height: 50px;
@@ -483,8 +613,12 @@
     position: relative;
     left: 134px;
     margin-left: 3%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background: white;
     overflow-y: hidden;
     border: none;
@@ -499,14 +633,24 @@
     width: 25px;
   }
   #searchAndFilter_Container #btnFilter_container #showFilterButton #advanceSearchIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     max-width: 50%;
   }
   #searchAndFilter_Container #filter_Container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: absolute;
     left: 0;
     padding-top: 15px;
@@ -525,8 +669,13 @@
     font-size: 18px;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #author_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #author_container #searchAuthor {
     position: relative;
@@ -534,8 +683,13 @@
     left: 6%;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     margin-top: 20px;
   }
   #searchAndFilter_Container #filter_Container #sortingForm_container #adviser_container #searchAdviser {
@@ -568,7 +722,8 @@
   }
   #searchAndFilter_Container #filter_Container #clearBtn:hover {
     border: 3px solid blue;
-    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
   }
   #pdf_Container {
     display: none;
@@ -586,4 +741,5 @@
   #numberOfList {
     display: none;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+/*# sourceMappingURL=index.css.map */
